@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="SandDroid is a system which can automatically analyzes Android applications!">
+<meta name="author" content="Hu.Wenjun">
+<link rel="shortcut icon" href="http://sanddroid.xjtu.edu.cn/static/images/favicon.png?v=639ea912929e09335a17f0a09d301b0b">
+<link rel="icon" href="http://sanddroid.xjtu.edu.cn/static/images/favicon.png?v=639ea912929e09335a17f0a09d301b0b">
+<title>SandDroid</title>
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet" href="5_files/bootstrap.css">
+<!-- jQuery UI core CSS -->
+<link rel="stylesheet" href="5_files/jquery-ui.css">
+<!-- FontAwesome core CSS -->
+<link rel="stylesheet" href="5_files/font-awesome.css">
+<!-- Custom styles -->
+<link rel="stylesheet" href="5_files/main.css">
+<link rel="stylesheet" href="5_files/report.css">
+<link rel="stylesheet" href="5_files/footer.css">
+<script type="text/javascript" async="" src="5_files/ga.js"></script><script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-38985659-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+</head>
+<body>
+<div class="page-container">
+<div class="navbar navbar-inverse navbar-fixed-top">
+<div class="container">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="http://sanddroid.xjtu.edu.cn/">SandDroid</a>
+</div>
+</div>
+</div>
+
+<div class="container" id="report-th" data-md5="2AD9B04688BB46CF002F0439C80A36AA">
+<h4>
+<i class="fa fa-list fa-lg"> </i>
+Report
+</h4>
+</div>
+
+<div class="container table-container">
+<legend> General Information </legend>
+<div class="container pull-left info-container" id="basic-container">
+<div class="container loading-img" id="basic-loading-img" style="display: none;">
+<img src="5_files/loading.gif">
+</div>
+<table class="table table-striped" id="basic-table" style="display: table;">
+<tbody>
+<tr>
+<td class="table-td-header"> Analysis Start Time </td>
+<td>2018-09-20 20:38:46</td></tr>
+<tr>
+<td class="table-td-header"> Analysis End Time </td>
+<td>2018-09-20 20:39:56</td></tr>
+<tr>
+<td class="table-td-header"> File MD5 </td>
+<td>2AD9B04688BB46CF002F0439C80A36AA</td></tr>
+<tr>
+<td class="table-td-header"> File Size </td>
+<td>854.49 KB</td></tr>
+<tr>
+<td class="table-td-header"> File Name </td>
+<td>2AD9B04688BB46CF002F0439C80A36AA.apk</td></tr>
+<tr>
+<td class="table-td-header"> Package Name </td>
+<td>com.google.common.base</td></tr>
+<tr>
+<td class="table-td-header"> Version Code </td>
+<td>1</td></tr>
+<tr>
+<td class="table-td-header"> Version Name </td>
+<td>1.0</td></tr>
+<tr>
+<td class="table-td-header"> Min SDK </td>
+<td>8</td></tr>
+<tr>
+<td class="table-td-header"> Target SDK </td>
+<td>21</td></tr>
+<tr>
+<td class="table-td-header"> Max SDK </td>
+<td>N/A</td></tr>
+
+<tr>
+<td class="table-td-header"> Pcap File </td>
+<td>
+<a href="http://sanddroid.xjtu.edu.cn/file_download?md5=2AD9B04688BB46CF002F0439C80A36AA&amp;type=pcap">
+<i class="fa fa-file-powerpoint-o fa-lg file-download">
+</i>
+</a>
+</td>
+</tr>
+
+
+<tr>
+<td class="table-td-header"> Logcat File </td>
+<td>
+<a href="http://sanddroid.xjtu.edu.cn/file_download?md5=2AD9B04688BB46CF002F0439C80A36AA&amp;type=logcat">
+<i class="fa fa-file-code-o fa-lg file-download">
+</i>
+</a>
+</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+</div>
+<div class="container table-container" id="risk-container">
+<legend>Risk Score</legend>
+<div class="container loading-img" id="risk-loading-img" style="display: none;">
+<img src="5_files/loading.gif">
+</div>
+<div class="container info-container">
+<p id="risk-p">
+<img src="5_files/level10.gif">&nbsp;&nbsp;&nbsp;&nbsp;<i id="risk-row-danger">100</i></p>
+</div>
+</div>
+<div class="container table-container" id="threats-container">
+<legend>Risky Behaviors</legend>
+<div class="container loading-img" id="threats-loading-img" style="display: none;">
+<img src="5_files/loading.gif">
+</div>
+<div class="container info-container">
+<table class="table table-striped" id="threats-table" style="display: table;">
+<tbody>
+<tr><td> Encrypt or Decrypt data </td></tr><tr><td> Exist unused permissions </td></tr><tr><td> Gets the unique device ID, IMEI for GSM and MEID for ESN or ESN for CDMA phones </td></tr><tr><td> Utilizes Java reflection </td></tr></tbody>
+</table>
+</div>
+</div>
+<div class="container table-container" id="malware-container">
+<legend>Malware Detected by <a href="https://www.virustotal.com/en/file/87aeeac5750cd903bd408321c4465e435fde2f88325696853bfe8d62e7838ba4/analysis" target="_blank">VirusTotal</a></legend>
+<div class="container loading-img" id="malware-loading-img" style="display: none;">
+<img src="5_files/loading.gif">
+</div>
+<div class="container info-container">
+<table class="table table-striped" id="malware-table" style="display: table;">
+<tbody>
+<tr><td>AVG</td><td class="custom-danger">Android:Locker-AS [Trj]</td></tr><tr><td>Ad-Aware</td><td class="custom-danger">Android.Trojan.SLocker.BZ</td></tr><tr><td>BitDefender</td><td class="custom-danger">Android.Trojan.SLocker.BZ</td></tr><tr><td>ESET-NOD32</td><td class="custom-danger">a variant of Android/Locker.S</td></tr><tr><td>F-Secure</td><td class="custom-danger">Android.Trojan.SLocker.BZ</td></tr><tr><td>Fortinet</td><td class="custom-danger">Android/Locker.AD!tr</td></tr><tr><td>Kaspersky</td><td class="custom-danger">HEUR:Trojan-Ransom.AndroidOS.Small.m</td></tr><tr><td>McAfee</td><td class="custom-danger">Artemis!2AD9B04688BB</td></tr><tr><td>Qihoo-360</td><td class="custom-danger">Trojan.Android.Gen</td></tr><tr><td>Symantec</td><td class="custom-danger">Trojan.Gen.2</td></tr></tbody>
+</table>
+</div>
+</div>
+<div class="container table-container" id="certificate-container">
+<legend> Certificate </legend>
+<div class="container loading-img" id="certificate-loading-img" style="display: none;">
+<img src="5_files/loading.gif">
+</div>
+<div class="container info-container">
+<table class="table table-striped" id="certificate-table" style="display: table;">
+<tbody>
+<tr>
+<td class="table-td-header"> Content </td>
+<td>Owner: CN=A, OU=A, O=A, L=A, ST=A, C=A
+Issuer: CN=A, OU=A, O=A, L=A, ST=A, C=A
+Serial number: 792fb5a2
+Valid from: Fri Jan 16 21:56:29 CST 2015 until: Sat Nov 23 21:56:29 CST 2239
+Certificate fingerprints:
+	 MD5:  FB:43:5B:4E:F3:11:6D:ED:1F:56:DB:5C:52:35:48:60
+	 SHA1: D4:1B:1E:33:BC:D6:82:0D:91:D1:66:08:D6:A8:5A:D0:A8:D8:E0:52
+	 SHA256: 5D:D3:7D:04:C5:CE:EF:8C:02:0B:F4:07:3A:85:1F:3E:4C:B3:F7:95:F4:5B:BC:E3:DE:54:01:4D:D2:71:36:A1
+	 Signature algorithm name: SHA256withRSA
+	 Version: 3
+
+Extensions: 
+
+#1: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: B6 79 5B 4F 87 50 8F D5   03 3D FC 86 C1 73 3A 72  .y[O.P...=...s:r
+0010: 48 EB 6D 9F                                        H.m.
+]
+]
+
+</td></tr>
+<tr>
+<td class="table-td-header"> Sha1 </td>
+<td>D41B1E33BCD6820D91D16608D6A85AD0A8D8E052</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="container table-container">
+<legend> Classification </legend>
+<div class="container info-container">
+<div class="container">
+<div class="pull-left classification-chart" id="id3-chart" data-highcharts-chart="0"><div id="highcharts-xkl5zhz-0" style="position: relative; overflow: hidden; width: 486px; height: 400px; text-align: left; line-height: normal; z-index: 0; left: 0.5px; top: 0.516602px;" dir="ltr" class="highcharts-container "><svg version="1.1" class="highcharts-root" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="486" height="400" viewBox="0 0 486 400"><desc>Created with Highcharts 6.1.3</desc><defs><clipPath id="highcharts-xkl5zhz-1"><rect x="0" y="0" width="466" height="296" fill="none"></rect></clipPath></defs><rect fill="#ffffff" class="highcharts-background" x="0" y="0" width="486" height="400" rx="0" ry="0"></rect><rect fill="none" class="highcharts-plot-background" x="10" y="42" width="466" height="296"></rect><rect fill="none" class="highcharts-plot-border" data-z-index="1" x="10" y="42" width="466" height="296"></rect><g class="highcharts-series-group" data-z-index="3"><g data-z-index="0.1" class="highcharts-series highcharts-series-0 highcharts-pie-series highcharts-tracker" transform="translate(10,42) scale(1 1)" style="cursor:pointer;"><path fill="#7cb5ec" d="M 232.97800329400093 40.00000224006982 A 108 108 0 0 1 232.87000332523937 40.00007823676653 L 233 148 A 0 0 0 0 0 233 148 Z" transform="translate(0,0)" stroke="#ffffff" stroke-width="1" stroke-linejoin="round" class="highcharts-point highcharts-color-0"></path><path fill="#434348" d="M 232.97800329400093 40.00000224006982 A 108 108 0 0 1 232.87000332523937 40.00007823676653 L 233 148 A 0 0 0 0 0 233 148 Z" transform="translate(0,0)" stroke="#ffffff" stroke-width="1" stroke-linejoin="round" class="highcharts-point highcharts-color-1"></path><path fill="#90ed7d" d="M 232.97800329400093 40.00000224006982 A 108 108 0 0 1 232.87000332523937 40.00007823676653 L 233 148 A 0 0 0 0 0 233 148 Z" transform="translate(0,0)" stroke="#ffffff" stroke-width="1" stroke-linejoin="round" class="highcharts-point highcharts-color-2"></path><path fill="#f7a35c" d="M 232.97800329400093 40.00000224006982 A 108 108 0 1 1 232.84999016668826 40.000104180374734 M 233 148 A 0 0 0 1 0 233 148 " transform="translate(0,0)" stroke="#ffffff" stroke-width="1" stroke-linejoin="round" class="highcharts-point highcharts-color-3"></path><path fill="#8085e9" d="M 232.95799011951286 40.00000817050983 A 108 108 0 0 1 232.84999016668826 40.000104180374734 L 233 148 A 0 0 0 0 0 233 148 Z" transform="translate(0,0)" stroke="#ffffff" stroke-width="1" stroke-linejoin="round" class="highcharts-point highcharts-color-4"></path><path fill="#f15c80" d="M 232.95799011951286 40.00000817050983 A 108 108 0 0 1 232.84999016668826 40.000104180374734 L 233 148 A 0 0 0 0 0 233 148 Z" transform="translate(0,0)" stroke="#ffffff" stroke-width="1" stroke-linejoin="round" class="highcharts-point highcharts-color-5"></path></g><g data-z-index="0.1" class="highcharts-markers highcharts-series-0 highcharts-pie-series " transform="translate(10,42) scale(1 1)"></g></g><g class="highcharts-exporting-group" data-z-index="3"><g class="highcharts-button highcharts-contextbutton" stroke-linecap="round" transform="translate(452,10)"><title>Chart context menu</title><rect fill="#ffffff" class=" highcharts-button-box" x="0.5" y="0.5" width="24" height="22" rx="2" ry="2" stroke="none" stroke-width="1"></rect><path fill="#666666" d="M 6 6.5 L 20 6.5 M 6 11.5 L 20 11.5 M 6 16.5 L 20 16.5" class="highcharts-button-symbol" data-z-index="1" stroke="#666666" stroke-width="3"></path><text x="0" data-z-index="1" style="font-weight:normal;color:#333333;cursor:pointer;fill:#333333;" y="12"></text></g></g><text x="243" text-anchor="middle" class="highcharts-title" data-z-index="4" style="color:#333333;font-size:18px;font-family:&quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;font-weight:bold;fill:#333333;" y="24"><tspan>Id3</tspan></text><text x="243" text-anchor="middle" class="highcharts-subtitle" data-z-index="4" style="color:#666666;fill:#666666;" y="41"></text><g data-z-index="6" class="highcharts-data-labels highcharts-series-0 highcharts-pie-series highcharts-tracker" transform="translate(10,42) scale(1 1)" opacity="1" style="cursor:pointer;"><path fill="none" class="highcharts-data-label-connector highcharts-color-0" stroke="#7cb5ec" stroke-width="1" d="M 238 10 C 233 10 233 28 233 34 L 233 40"></path><path fill="none" class="highcharts-data-label-connector highcharts-color-1" stroke="#434348" stroke-width="1" d="M 309.5541752799933 30 C 304.5541752799933 30 233 28 233 34 L 233 40"></path><path fill="none" class="highcharts-data-label-connector highcharts-color-2" stroke="#90ed7d" stroke-width="1" d="M 335.15966241192893 50 C 330.15966241192893 50 233 28 233 34 L 233 40"></path><path fill="none" class="highcharts-data-label-connector highcharts-color-3" stroke="#f7a35c" stroke-width="1" d="M 238 286 C 233 286 233 268 233 262 L 233 256"></path><path fill="none" class="highcharts-data-label-connector highcharts-color-4" stroke="#8085e9" stroke-width="1" d="M 228 10 C 233 10 232.99999999999997 28 232.99999999999997 34 L 232.99999999999997 40"></path><path fill="none" class="highcharts-data-label-connector highcharts-color-5" stroke="#f15c80" stroke-width="1" d="M 156.44582472000673 30 C 161.44582472000673 30 232.99999999999997 28 232.99999999999997 34 L 232.99999999999997 40"></path><g class="highcharts-label highcharts-data-label highcharts-data-label-color-0 " data-z-index="1" transform="translate(243,0)"><text x="5" data-z-index="1" style="font-size:11px;font-weight:bold;color:#000000;cursor:pointer;fill:#000000;" y="16"><tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round" style="">map</tspan><tspan x="5" y="16">map</tspan></text></g><g class="highcharts-label highcharts-data-label highcharts-data-label-color-1 " data-z-index="1" transform="translate(315,20)"><text x="5" data-z-index="1" style="font-size:11px;font-weight:bold;color:#000000;cursor:pointer;fill:#000000;" y="16"><tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round" style="">network</tspan><tspan x="5" y="16">network</tspan></text></g><g class="highcharts-label highcharts-data-label highcharts-data-label-color-2 " data-z-index="1" transform="translate(340,40)"><text x="5" data-z-index="1" style="font-size:11px;font-weight:bold;color:#000000;cursor:pointer;fill:#000000;" y="16"><tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round" style="">normal</tspan><tspan x="5" y="16">normal</tspan></text></g><g class="highcharts-label highcharts-data-label highcharts-data-label-color-3 " data-z-index="1" transform="translate(243,276)"><text x="5" data-z-index="1" style="font-size:11px;font-weight:bold;color:#000000;cursor:pointer;fill:#000000;" y="16"><tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round" style="">system</tspan><tspan x="5" y="16">system</tspan></text></g><g class="highcharts-label highcharts-data-label highcharts-data-label-color-4 " data-z-index="1" transform="translate(175,0)"><text x="5" data-z-index="1" style="font-size:11px;font-weight:bold;color:#000000;cursor:pointer;fill:#000000;" y="16"><tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round" style="">camera</tspan><tspan x="5" y="16">camera</tspan></text></g><g class="highcharts-label highcharts-data-label highcharts-data-label-color-5 " data-z-index="1" transform="translate(101,20)"><text x="5" data-z-index="1" style="font-size:11px;font-weight:bold;color:#000000;cursor:pointer;fill:#000000;" y="16"><tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round" style="">callsms</tspan><tspan x="5" y="16">callsms</tspan></text></g></g><g class="highcharts-legend" data-z-index="7" transform="translate(28,350)"><rect fill="none" class="highcharts-legend-box" rx="0" ry="0" x="0" y="0" width="431" height="35" visibility="visible"></rect><g data-z-index="1"><g><g class="highcharts-legend-item highcharts-pie-series highcharts-color-0" data-z-index="1" transform="translate(8,3)"><text x="21" style="color:#333333;font-size:12px;font-weight:bold;cursor:pointer;fill:#333333;" text-anchor="start" data-z-index="2" y="15"><tspan>map</tspan></text><rect x="2" y="4" width="12" height="12" fill="#7cb5ec" rx="6" ry="6" class="highcharts-point" data-z-index="3"></rect></g><g class="highcharts-legend-item highcharts-pie-series highcharts-color-1" data-z-index="1" transform="translate(95,3)"><text x="21" y="15" style="color:#333333;font-size:12px;font-weight:bold;cursor:pointer;fill:#333333;" text-anchor="start" data-z-index="2"><tspan>network</tspan></text><rect x="2" y="4" width="12" height="12" fill="#434348" rx="6" ry="6" class="highcharts-point" data-z-index="3"></rect></g><g class="highcharts-legend-item highcharts-pie-series highcharts-color-2" data-z-index="1" transform="translate(182,3)"><text x="21" y="15" style="color:#333333;font-size:12px;font-weight:bold;cursor:pointer;fill:#333333;" text-anchor="start" data-z-index="2"><tspan>normal</tspan></text><rect x="2" y="4" width="12" height="12" fill="#90ed7d" rx="6" ry="6" class="highcharts-point" data-z-index="3"></rect></g><g class="highcharts-legend-item highcharts-pie-series highcharts-color-3" data-z-index="1" transform="translate(269,3)"><text x="21" y="15" style="color:#333333;font-size:12px;font-weight:bold;cursor:pointer;fill:#333333;" text-anchor="start" data-z-index="2"><tspan>system</tspan></text><rect x="2" y="4" width="12" height="12" fill="#f7a35c" rx="6" ry="6" class="highcharts-point" data-z-index="3"></rect></g><g class="highcharts-legend-item highcharts-pie-series highcharts-color-4" data-z-index="1" transform="translate(356,3)"><text x="21" y="15" style="color:#333333;font-size:12px;font-weight:bold;cursor:pointer;fill:#333333;" text-anchor="start" data-z-index="2"><tspan>camera</tspan></text><rect x="2" y="4" width="12" height="12" fill="#8085e9" rx="6" ry="6" class="highcharts-point" data-z-index="3"></rect></g><g class="highcharts-legend-item highcharts-pie-series highcharts-color-5" data-z-index="1" transform="translate(8,15)"><text x="21" y="15" style="color:#333333;font-size:12px;font-weight:bold;cursor:pointer;fill:#333333;" text-anchor="start" data-z-index="2"><tspan>callsms</tspan></text><rect x="2" y="4" width="12" height="12" fill="#f15c80" rx="6" ry="6" class="highcharts-point" data-z-index="3"></rect></g></g></g></g><text x="476" class="highcharts-credits" text-anchor="end" data-z-index="8" style="cursor:pointer;color:#999999;font-size:9px;fill:#999999;" y="395">Highcharts.com</text></svg></div></div>
+<div class="pull-right classification-chart" id="naivebayes-chart" data-highcharts-chart="3"><div id="highcharts-xkl5zhz-6" style="position: relative; overflow: hidden; width: 486px; height: 400px; text-align: left; line-height: normal; z-index: 0; left: 0.5px; top: 0.516602px;" dir="ltr" class="highcharts-container "><svg version="1.1" class="highcharts-root" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="486" height="400" viewBox="0 0 486 400"><desc>Created with Highcharts 6.1.3</desc><defs><clipPath id="highcharts-xkl5zhz-7"><rect x="0" y="0" width="466" height="296" fill="none"></rect></clipPath></defs><rect fill="#ffffff" class="highcharts-background" x="0" y="0" width="486" height="400" rx="0" ry="0"></rect><rect fill="none" class="highcharts-plot-background" x="10" y="42" width="466" height="296"></rect><rect fill="none" class="highcharts-plot-border" data-z-index="1" x="10" y="42" width="466" height="296"></rect><g class="highcharts-series-group" data-z-index="3"><g data-z-index="0.1" class="highcharts-series highcharts-series-0 highcharts-pie-series highcharts-tracker" transform="translate(10,42) scale(1 1)" style="cursor:pointer;"><path fill="#7cb5ec" d="M 232.9749481959455 40.00000255119062 A 123 123 0 0 1 240.59611138696866 40.234780610317955 L 233 163 A 0 0 0 0 0 233 163 Z" transform="translate(0,0)" stroke="#ffffff" stroke-width="1" stroke-linejoin="round" class="highcharts-point highcharts-color-0"></path><path fill="#434348" d="M 240.7188727878421 40.24243810304348 A 123 123 0 0 1 255.96341387426054 42.16258185793848 L 233 163 A 0 0 0 0 0 233 163 Z" transform="translate(0,0)" stroke="#ffffff" stroke-width="1" stroke-linejoin="round" class="highcharts-point highcharts-color-1"></path><path fill="#90ed7d" d="M 256.08423979055704 42.18560568668954 A 123 123 0 0 1 352.1762278704093 193.43068698830632 L 233 163 A 0 0 0 0 0 233 163 Z" transform="translate(0,0)" stroke="#ffffff" stroke-width="1" stroke-linejoin="round" class="highcharts-point highcharts-color-2"></path><path fill="#f7a35c" d="M 352.1457376003838 193.5498479809718 A 123 123 0 1 1 225.20837586226608 40.24703427901922 L 233 163 A 0 0 0 1 0 233 163 Z" transform="translate(0,0)" stroke="#ffffff" stroke-width="1" stroke-linejoin="round" class="highcharts-point highcharts-color-3"></path><path fill="#8085e9" d="M 225.33113270334002 40.23930403265783 A 123 123 0 0 1 225.20837586226608 40.24703427901922 L 233 163 A 0 0 0 0 0 233 163 Z" transform="translate(0,0)" stroke="#ffffff" stroke-width="1" stroke-linejoin="round" class="highcharts-point highcharts-color-4"></path><path fill="#f15c80" d="M 225.33113270334002 40.23930403265783 A 123 123 0 0 1 232.8291554676172 40.000118649871226 L 233 163 A 0 0 0 0 0 233 163 Z" transform="translate(0,0)" stroke="#ffffff" stroke-width="1" stroke-linejoin="round" class="highcharts-point highcharts-color-5"></path></g><g data-z-index="0.1" class="highcharts-markers highcharts-series-0 highcharts-pie-series " transform="translate(10,42) scale(1 1)"></g></g><g class="highcharts-exporting-group" data-z-index="3"><g class="highcharts-button highcharts-contextbutton" stroke-linecap="round" transform="translate(452,10)"><title>Chart context menu</title><rect fill="#ffffff" class=" highcharts-button-box" x="0.5" y="0.5" width="24" height="22" rx="2" ry="2" stroke="none" stroke-width="1"></rect><path fill="#666666" d="M 6 6.5 L 20 6.5 M 6 11.5 L 20 11.5 M 6 16.5 L 20 16.5" class="highcharts-button-symbol" data-z-index="1" stroke="#666666" stroke-width="3"></path><text x="0" data-z-index="1" style="font-weight:normal;color:#333333;cursor:pointer;fill:#333333;" y="12"></text></g></g><text x="243" text-anchor="middle" class="highcharts-title" data-z-index="4" style="color:#333333;font-size:18px;font-family:&quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;font-weight:bold;fill:#333333;" y="24"><tspan>NaiveBayes</tspan></text><text x="243" text-anchor="middle" class="highcharts-subtitle" data-z-index="4" style="color:#666666;fill:#666666;" y="41"></text><g data-z-index="6" class="highcharts-data-labels highcharts-series-0 highcharts-pie-series highcharts-tracker" transform="translate(10,42) scale(1 1)" opacity="1" style="cursor:pointer;"><path fill="none" class="highcharts-data-label-connector highcharts-color-0" stroke="#7cb5ec" stroke-width="1" d="M 242.8058461389534 10 C 237.8058461389534 10 237.24045247554733 28.06661435062624 237.05198792107856 34.063653712820624 L 236.8635233666098 40.06069307501501"></path><path fill="none" class="highcharts-data-label-connector highcharts-color-1" stroke="#434348" stroke-width="1" d="M 313.63068160475615 30 C 308.63068160475615 30 249.9199865311811 29.064515322545503 249.16798712979528 35.01720353043237 L 248.41598772840945 40.969891738319234"></path><path fill="none" class="highcharts-data-label-connector highcharts-color-2" stroke="#90ed7d" stroke-width="1" d="M 367.18217260180836 81.01850036821352 C 362.18217260180836 81.01850036821352 346.98426994277213 90.66338267783546 341.91830238976 93.87834344770944 L 336.8523348367479 97.09330421758342"></path><path fill="none" class="highcharts-data-label-connector highcharts-color-3" stroke="#f7a35c" stroke-width="1" d="M 110.11147385530423 260.5258704315495 C 115.11147385530423 260.5258704315495 128.9807122252684 249.05223861607305 133.60379168192316 245.22769467758093 L 138.2268711385779 241.4031507390888"></path><path fill="none" class="highcharts-data-label-connector highcharts-color-4" stroke="#8085e9" stroke-width="1" d="M 152.36931839524385 30 C 157.36931839524385 30 224.52327986354268 28.266391662183338 224.90002298071857 34.25455203275297 L 225.27676609789447 40.2427124033226"></path><path fill="none" class="highcharts-data-label-connector highcharts-color-5" stroke="#f15c80" stroke-width="1" d="M 223.1941538610466 10 C 228.1941538610466 10 228.7595475244527 28.06661435062624 228.94801207892147 34.063653712820624 L 229.13647663339023 40.06069307501501"></path><g class="highcharts-label highcharts-data-label highcharts-data-label-color-0 " data-z-index="1" transform="translate(248,0)"><text x="5" data-z-index="1" style="font-size:11px;font-weight:bold;color:#000000;cursor:pointer;fill:#000000;" y="16"><tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round" style="">map</tspan><tspan x="5" y="16">map</tspan></text></g><g class="highcharts-label highcharts-data-label highcharts-data-label-color-1 " data-z-index="1" transform="translate(319,20)"><text x="5" data-z-index="1" style="font-size:11px;font-weight:bold;color:#000000;cursor:pointer;fill:#000000;" y="16"><tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round" style="">network</tspan><tspan x="5" y="16">network</tspan></text></g><g class="highcharts-label highcharts-data-label highcharts-data-label-color-2 " data-z-index="1" transform="translate(372,71)"><text x="5" data-z-index="1" style="font-size:11px;font-weight:bold;color:#000000;cursor:pointer;fill:#000000;" y="16"><tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round" style="">normal</tspan><tspan x="5" y="16">normal</tspan></text></g><g class="highcharts-label highcharts-data-label highcharts-data-label-color-3 " data-z-index="1" transform="translate(57,251)"><text x="5" data-z-index="1" style="font-size:11px;font-weight:bold;color:#000000;cursor:pointer;fill:#000000;" y="16"><tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round" style="">system</tspan><tspan x="5" y="16">system</tspan></text></g><g class="highcharts-label highcharts-data-label highcharts-data-label-color-4 " data-z-index="1" transform="translate(99,20)"><text x="5" data-z-index="1" style="font-size:11px;font-weight:bold;color:#000000;cursor:pointer;fill:#000000;" y="16"><tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round" style="">camera</tspan><tspan x="5" y="16">camera</tspan></text></g><g class="highcharts-label highcharts-data-label highcharts-data-label-color-5 " data-z-index="1" transform="translate(168,0)"><text x="5" data-z-index="1" style="font-size:11px;font-weight:bold;color:#000000;cursor:pointer;fill:#000000;" y="16"><tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round" style="">callsms</tspan><tspan x="5" y="16">callsms</tspan></text></g></g><g class="highcharts-legend" data-z-index="7" transform="translate(28,350)"><rect fill="none" class="highcharts-legend-box" rx="0" ry="0" x="0" y="0" width="431" height="35" visibility="visible"></rect><g data-z-index="1"><g><g class="highcharts-legend-item highcharts-pie-series highcharts-color-0" data-z-index="1" transform="translate(8,3)"><text x="21" style="color:#333333;font-size:12px;font-weight:bold;cursor:pointer;fill:#333333;" text-anchor="start" data-z-index="2" y="15"><tspan>map</tspan></text><rect x="2" y="4" width="12" height="12" fill="#7cb5ec" rx="6" ry="6" class="highcharts-point" data-z-index="3"></rect></g><g class="highcharts-legend-item highcharts-pie-series highcharts-color-1" data-z-index="1" transform="translate(95,3)"><text x="21" y="15" style="color:#333333;font-size:12px;font-weight:bold;cursor:pointer;fill:#333333;" text-anchor="start" data-z-index="2"><tspan>network</tspan></text><rect x="2" y="4" width="12" height="12" fill="#434348" rx="6" ry="6" class="highcharts-point" data-z-index="3"></rect></g><g class="highcharts-legend-item highcharts-pie-series highcharts-color-2" data-z-index="1" transform="translate(182,3)"><text x="21" y="15" style="color:#333333;font-size:12px;font-weight:bold;cursor:pointer;fill:#333333;" text-anchor="start" data-z-index="2"><tspan>normal</tspan></text><rect x="2" y="4" width="12" height="12" fill="#90ed7d" rx="6" ry="6" class="highcharts-point" data-z-index="3"></rect></g><g class="highcharts-legend-item highcharts-pie-series highcharts-color-3" data-z-index="1" transform="translate(269,3)"><text x="21" y="15" style="color:#333333;font-size:12px;font-weight:bold;cursor:pointer;fill:#333333;" text-anchor="start" data-z-index="2"><tspan>system</tspan></text><rect x="2" y="4" width="12" height="12" fill="#f7a35c" rx="6" ry="6" class="highcharts-point" data-z-index="3"></rect></g><g class="highcharts-legend-item highcharts-pie-series highcharts-color-4" data-z-index="1" transform="translate(356,3)"><text x="21" y="15" style="color:#333333;font-size:12px;font-weight:bold;cursor:pointer;fill:#333333;" text-anchor="start" data-z-index="2"><tspan>camera</tspan></text><rect x="2" y="4" width="12" height="12" fill="#8085e9" rx="6" ry="6" class="highcharts-point" data-z-index="3"></rect></g><g class="highcharts-legend-item highcharts-pie-series highcharts-color-5" data-z-index="1" transform="translate(8,15)"><text x="21" y="15" style="color:#333333;font-size:12px;font-weight:bold;cursor:pointer;fill:#333333;" text-anchor="start" data-z-index="2"><tspan>callsms</tspan></text><rect x="2" y="4" width="12" height="12" fill="#f15c80" rx="6" ry="6" class="highcharts-point" data-z-index="3"></rect></g></g></g></g><text x="476" class="highcharts-credits" text-anchor="end" data-z-index="8" style="cursor:pointer;color:#999999;font-size:9px;fill:#999999;" y="395">Highcharts.com</text></svg></div></div>
+</div>
+<div class="container">
+<div class="pull-left classification-chart" id="decisiontable-chart" data-highcharts-chart="1"><div id="highcharts-xkl5zhz-2" style="position: relative; overflow: hidden; width: 486px; height: 400px; text-align: left; line-height: normal; z-index: 0; left: 0.5px; top: 0.516602px;" dir="ltr" class="highcharts-container "><svg version="1.1" class="highcharts-root" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="486" height="400" viewBox="0 0 486 400"><desc>Created with Highcharts 6.1.3</desc><defs><clipPath id="highcharts-xkl5zhz-3"><rect x="0" y="0" width="466" height="296" fill="none"></rect></clipPath></defs><rect fill="#ffffff" class="highcharts-background" x="0" y="0" width="486" height="400" rx="0" ry="0"></rect><rect fill="none" class="highcharts-plot-background" x="10" y="42" width="466" height="296"></rect><rect fill="none" class="highcharts-plot-border" data-z-index="1" x="10" y="42" width="466" height="296"></rect><g class="highcharts-series-group" data-z-index="3"><g data-z-index="0.1" class="highcharts-series highcharts-series-0 highcharts-pie-series highcharts-tracker" transform="translate(10,42) scale(1 1)" style="cursor:pointer;"><path fill="#7cb5ec" d="M 232.97790145739907 40.0000022504405 A 108.5 108.5 0 0 1 296.7288529846951 60.68836468180817 L 233 148.5 A 0 0 0 0 0 233 148.5 Z" transform="translate(0,0)" stroke="#ffffff" stroke-width="1" stroke-linejoin="round" class="highcharts-point highcharts-color-0"></path><path fill="#434348" d="M 296.8166327409542 60.75213742998537 A 108.5 108.5 0 0 1 336.16140711217474 114.88491287180508 L 233 148.5 A 0 0 0 0 0 233 148.5 Z" transform="translate(0,0)" stroke="#ffffff" stroke-width="1" stroke-linejoin="round" class="highcharts-point highcharts-color-1"></path><path fill="#90ed7d" d="M 336.1949706130012 114.98809106926586 A 108.5 108.5 0 1 1 125.33855506337193 135.03659500136013 L 233 148.5 A 0 0 0 1 0 233 148.5 Z" transform="translate(0,0)" stroke="#ffffff" stroke-width="1" stroke-linejoin="round" class="highcharts-point highcharts-color-2"></path><path fill="#f7a35c" d="M 125.35207229684464 134.928940306069 A 108.5 108.5 0 0 1 180.65993745064947 53.45912536003222 L 233 148.5 A 0 0 0 0 0 233 148.5 Z" transform="translate(0,0)" stroke="#ffffff" stroke-width="1" stroke-linejoin="round" class="highcharts-point highcharts-color-3"></path><path fill="#8085e9" d="M 180.7550044794784 53.406832826639544 A 108.5 108.5 0 0 1 199.3447876520711 45.35167630147443 L 233 148.5 A 0 0 0 0 0 233 148.5 Z" transform="translate(0,0)" stroke="#ffffff" stroke-width="1" stroke-linejoin="round" class="highcharts-point highcharts-color-4"></path><path fill="#f15c80" d="M 199.44795278618304 45.31807266889324 A 108.5 108.5 0 0 1 232.84929567671924 40.000104662691285 L 233 148.5 A 0 0 0 0 0 233 148.5 Z" transform="translate(0,0)" stroke="#ffffff" stroke-width="1" stroke-linejoin="round" class="highcharts-point highcharts-color-5"></path></g><g data-z-index="0.1" class="highcharts-markers highcharts-series-0 highcharts-pie-series " transform="translate(10,42) scale(1 1)"></g></g><g class="highcharts-exporting-group" data-z-index="3"><g class="highcharts-button highcharts-contextbutton" stroke-linecap="round" transform="translate(452,10)"><title>Chart context menu</title><rect fill="#ffffff" class=" highcharts-button-box" x="0.5" y="0.5" width="24" height="22" rx="2" ry="2" stroke="none" stroke-width="1"></rect><path fill="#666666" d="M 6 6.5 L 20 6.5 M 6 11.5 L 20 11.5 M 6 16.5 L 20 16.5" class="highcharts-button-symbol" data-z-index="1" stroke="#666666" stroke-width="3"></path><text x="0" data-z-index="1" style="font-weight:normal;color:#333333;cursor:pointer;fill:#333333;" y="12"></text></g></g><text x="243" text-anchor="middle" class="highcharts-title" data-z-index="4" style="color:#333333;font-size:18px;font-family:&quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;font-weight:bold;fill:#333333;" y="24"><tspan>DecisionTable</tspan></text><text x="243" text-anchor="middle" class="highcharts-subtitle" data-z-index="4" style="color:#666666;fill:#666666;" y="41"></text><g data-z-index="6" class="highcharts-data-labels highcharts-series-0 highcharts-pie-series highcharts-tracker" transform="translate(10,42) scale(1 1)" opacity="1" style="cursor:pointer;"><path fill="none" class="highcharts-data-label-connector highcharts-color-0" stroke="#7cb5ec" stroke-width="1" d="M 280.7988537209302 16.77867249312124 C 275.7988537209302 16.77867249312124 270.2365478221812 33.897689786434 268.3824458559315 39.60402888420492 L 266.5283438896818 45.310367981975844"></path><path fill="none" class="highcharts-data-label-connector highcharts-color-1" stroke="#434348" stroke-width="1" d="M 350.0488537209302 67.09174255749247 C 345.0488537209302 67.09174255749247 330.48654782218114 77.671877098757 325.63244585593145 81.19858861251183 L 320.77834388968176 84.72530012626666"></path><path fill="none" class="highcharts-data-label-connector highcharts-color-2" stroke="#90ed7d" stroke-width="1" d="M 251.0340013946146 286.38533209752654 C 246.0340013946146 286.38533209752654 244.34005175488096 268.4652167346711 243.77540187496987 262.49184494705264 L 243.21075199505879 256.51847315943417"></path><path fill="none" class="highcharts-data-label-connector highcharts-color-3" stroke="#f7a35c" stroke-width="1" d="M 113.44934046297318 70.65145216747992 C 118.44934046297318 70.65145216747992 133.33679079991532 80.76895296881827 138.29927424556269 84.14145323593105 L 143.26175769121005 87.51395350304384"></path><path fill="none" class="highcharts-data-label-connector highcharts-color-4" stroke="#8085e9" stroke-width="1" d="M 156.3062066842603 30 C 161.3062066842603 30 185.143679178509 37.91056760508026 187.52656652231767 43.417095359184145 L 189.90945386612634 48.92362311328803"></path><path fill="none" class="highcharts-data-label-connector highcharts-color-5" stroke="#f15c80" stroke-width="1" d="M 206.33382659192796 10 C 211.33382659192796 10 214.14964696265218 29.48355495828592 215.08825375289356 35.409685001856744 L 216.02686054313494 41.335815045427566"></path><g class="highcharts-label highcharts-data-label highcharts-data-label-color-0 " data-z-index="1" transform="translate(286,7)"><text x="5" data-z-index="1" style="font-size:11px;font-weight:bold;color:#000000;cursor:pointer;fill:#000000;" y="16"><tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round" style="">map</tspan><tspan x="5" y="16">map</tspan></text></g><g class="highcharts-label highcharts-data-label highcharts-data-label-color-1 " data-z-index="1" transform="translate(355,57)"><text x="5" data-z-index="1" style="font-size:11px;font-weight:bold;color:#000000;cursor:pointer;fill:#000000;" y="16"><tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round" style="">network</tspan><tspan x="5" y="16">network</tspan></text></g><g class="highcharts-label highcharts-data-label highcharts-data-label-color-2 " data-z-index="1" transform="translate(256,276)"><text x="5" data-z-index="1" style="font-size:11px;font-weight:bold;color:#000000;cursor:pointer;fill:#000000;" y="16"><tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round" style="">normal</tspan><tspan x="5" y="16">normal</tspan></text></g><g class="highcharts-label highcharts-data-label highcharts-data-label-color-3 " data-z-index="1" transform="translate(60,61)"><text x="5" data-z-index="1" style="font-size:11px;font-weight:bold;color:#000000;cursor:pointer;fill:#000000;" y="16"><tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round" style="">system</tspan><tspan x="5" y="16">system</tspan></text></g><g class="highcharts-label highcharts-data-label highcharts-data-label-color-4 " data-z-index="1" transform="translate(103,20)"><text x="5" data-z-index="1" style="font-size:11px;font-weight:bold;color:#000000;cursor:pointer;fill:#000000;" y="16"><tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round" style="">camera</tspan><tspan x="5" y="16">camera</tspan></text></g><g class="highcharts-label highcharts-data-label highcharts-data-label-color-5 " data-z-index="1" transform="translate(151,0)"><text x="5" data-z-index="1" style="font-size:11px;font-weight:bold;color:#000000;cursor:pointer;fill:#000000;" y="16"><tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round" style="">callsms</tspan><tspan x="5" y="16">callsms</tspan></text></g></g><g class="highcharts-legend" data-z-index="7" transform="translate(28,350)"><rect fill="none" class="highcharts-legend-box" rx="0" ry="0" x="0" y="0" width="431" height="35" visibility="visible"></rect><g data-z-index="1"><g><g class="highcharts-legend-item highcharts-pie-series highcharts-color-0" data-z-index="1" transform="translate(8,3)"><text x="21" style="color:#333333;font-size:12px;font-weight:bold;cursor:pointer;fill:#333333;" text-anchor="start" data-z-index="2" y="15"><tspan>map</tspan></text><rect x="2" y="4" width="12" height="12" fill="#7cb5ec" rx="6" ry="6" class="highcharts-point" data-z-index="3"></rect></g><g class="highcharts-legend-item highcharts-pie-series highcharts-color-1" data-z-index="1" transform="translate(95,3)"><text x="21" y="15" style="color:#333333;font-size:12px;font-weight:bold;cursor:pointer;fill:#333333;" text-anchor="start" data-z-index="2"><tspan>network</tspan></text><rect x="2" y="4" width="12" height="12" fill="#434348" rx="6" ry="6" class="highcharts-point" data-z-index="3"></rect></g><g class="highcharts-legend-item highcharts-pie-series highcharts-color-2" data-z-index="1" transform="translate(182,3)"><text x="21" y="15" style="color:#333333;font-size:12px;font-weight:bold;cursor:pointer;fill:#333333;" text-anchor="start" data-z-index="2"><tspan>normal</tspan></text><rect x="2" y="4" width="12" height="12" fill="#90ed7d" rx="6" ry="6" class="highcharts-point" data-z-index="3"></rect></g><g class="highcharts-legend-item highcharts-pie-series highcharts-color-3" data-z-index="1" transform="translate(269,3)"><text x="21" y="15" style="color:#333333;font-size:12px;font-weight:bold;cursor:pointer;fill:#333333;" text-anchor="start" data-z-index="2"><tspan>system</tspan></text><rect x="2" y="4" width="12" height="12" fill="#f7a35c" rx="6" ry="6" class="highcharts-point" data-z-index="3"></rect></g><g class="highcharts-legend-item highcharts-pie-series highcharts-color-4" data-z-index="1" transform="translate(356,3)"><text x="21" y="15" style="color:#333333;font-size:12px;font-weight:bold;cursor:pointer;fill:#333333;" text-anchor="start" data-z-index="2"><tspan>camera</tspan></text><rect x="2" y="4" width="12" height="12" fill="#8085e9" rx="6" ry="6" class="highcharts-point" data-z-index="3"></rect></g><g class="highcharts-legend-item highcharts-pie-series highcharts-color-5" data-z-index="1" transform="translate(8,15)"><text x="21" y="15" style="color:#333333;font-size:12px;font-weight:bold;cursor:pointer;fill:#333333;" text-anchor="start" data-z-index="2"><tspan>callsms</tspan></text><rect x="2" y="4" width="12" height="12" fill="#f15c80" rx="6" ry="6" class="highcharts-point" data-z-index="3"></rect></g></g></g></g><text x="476" class="highcharts-credits" text-anchor="end" data-z-index="8" style="cursor:pointer;color:#999999;font-size:9px;fill:#999999;" y="395">Highcharts.com</text></svg></div></div>
+<div class="pull-right classification-chart" id="j48-chart" data-highcharts-chart="2"><div id="highcharts-xkl5zhz-4" style="position: relative; overflow: hidden; width: 486px; height: 400px; text-align: left; line-height: normal; z-index: 0; left: 0.5px; top: 0.516602px;" dir="ltr" class="highcharts-container "><svg version="1.1" class="highcharts-root" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="486" height="400" viewBox="0 0 486 400"><desc>Created with Highcharts 6.1.3</desc><defs><clipPath id="highcharts-xkl5zhz-5"><rect x="0" y="0" width="466" height="296" fill="none"></rect></clipPath></defs><rect fill="#ffffff" class="highcharts-background" x="0" y="0" width="486" height="400" rx="0" ry="0"></rect><rect fill="none" class="highcharts-plot-background" x="10" y="42" width="466" height="296"></rect><rect fill="none" class="highcharts-plot-border" data-z-index="1" x="10" y="42" width="466" height="296"></rect><g class="highcharts-series-group" data-z-index="3"><g data-z-index="0.1" class="highcharts-series highcharts-series-0 highcharts-pie-series highcharts-tracker" transform="translate(10,42) scale(1 1)" style="cursor:pointer;"><path fill="#7cb5ec" d="M 232.97800329400093 40.00000224006982 A 108 108 0 0 1 232.87000332523937 40.00007823676653 L 233 148 A 0 0 0 0 0 233 148 Z" transform="translate(0,0)" stroke="#ffffff" stroke-width="1" stroke-linejoin="round" class="highcharts-point highcharts-color-0"></path><path fill="#434348" d="M 232.97800329400093 40.00000224006982 A 108 108 0 0 1 232.87000332523937 40.00007823676653 L 233 148 A 0 0 0 0 0 233 148 Z" transform="translate(0,0)" stroke="#ffffff" stroke-width="1" stroke-linejoin="round" class="highcharts-point highcharts-color-1"></path><path fill="#90ed7d" d="M 232.97800329400093 40.00000224006982 A 108 108 0 0 1 232.87000332523937 40.00007823676653 L 233 148 A 0 0 0 0 0 233 148 Z" transform="translate(0,0)" stroke="#ffffff" stroke-width="1" stroke-linejoin="round" class="highcharts-point highcharts-color-2"></path><path fill="#f7a35c" d="M 232.97800329400093 40.00000224006982 A 108 108 0 1 1 232.84999016668826 40.000104180374734 M 233 148 A 0 0 0 1 0 233 148 " transform="translate(0,0)" stroke="#ffffff" stroke-width="1" stroke-linejoin="round" class="highcharts-point highcharts-color-3"></path><path fill="#8085e9" d="M 232.95799011951286 40.00000817050983 A 108 108 0 0 1 232.84999016668826 40.000104180374734 L 233 148 A 0 0 0 0 0 233 148 Z" transform="translate(0,0)" stroke="#ffffff" stroke-width="1" stroke-linejoin="round" class="highcharts-point highcharts-color-4"></path><path fill="#f15c80" d="M 232.95799011951286 40.00000817050983 A 108 108 0 0 1 232.84999016668826 40.000104180374734 L 233 148 A 0 0 0 0 0 233 148 Z" transform="translate(0,0)" stroke="#ffffff" stroke-width="1" stroke-linejoin="round" class="highcharts-point highcharts-color-5"></path></g><g data-z-index="0.1" class="highcharts-markers highcharts-series-0 highcharts-pie-series " transform="translate(10,42) scale(1 1)"></g></g><g class="highcharts-exporting-group" data-z-index="3"><g class="highcharts-button highcharts-contextbutton" stroke-linecap="round" transform="translate(452,10)"><title>Chart context menu</title><rect fill="#ffffff" class=" highcharts-button-box" x="0.5" y="0.5" width="24" height="22" rx="2" ry="2" stroke="none" stroke-width="1"></rect><path fill="#666666" d="M 6 6.5 L 20 6.5 M 6 11.5 L 20 11.5 M 6 16.5 L 20 16.5" class="highcharts-button-symbol" data-z-index="1" stroke="#666666" stroke-width="3"></path><text x="0" data-z-index="1" style="font-weight:normal;color:#333333;cursor:pointer;fill:#333333;" y="12"></text></g></g><text x="243" text-anchor="middle" class="highcharts-title" data-z-index="4" style="color:#333333;font-size:18px;font-family:&quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;font-weight:bold;fill:#333333;" y="24"><tspan>J48</tspan></text><text x="243" text-anchor="middle" class="highcharts-subtitle" data-z-index="4" style="color:#666666;fill:#666666;" y="41"></text><g data-z-index="6" class="highcharts-data-labels highcharts-series-0 highcharts-pie-series highcharts-tracker" transform="translate(10,42) scale(1 1)" opacity="1" style="cursor:pointer;"><path fill="none" class="highcharts-data-label-connector highcharts-color-0" stroke="#7cb5ec" stroke-width="1" d="M 238 10 C 233 10 233 28 233 34 L 233 40"></path><path fill="none" class="highcharts-data-label-connector highcharts-color-1" stroke="#434348" stroke-width="1" d="M 309.5541752799933 30 C 304.5541752799933 30 233 28 233 34 L 233 40"></path><path fill="none" class="highcharts-data-label-connector highcharts-color-2" stroke="#90ed7d" stroke-width="1" d="M 335.15966241192893 50 C 330.15966241192893 50 233 28 233 34 L 233 40"></path><path fill="none" class="highcharts-data-label-connector highcharts-color-3" stroke="#f7a35c" stroke-width="1" d="M 238 286 C 233 286 233 268 233 262 L 233 256"></path><path fill="none" class="highcharts-data-label-connector highcharts-color-4" stroke="#8085e9" stroke-width="1" d="M 228 10 C 233 10 232.99999999999997 28 232.99999999999997 34 L 232.99999999999997 40"></path><path fill="none" class="highcharts-data-label-connector highcharts-color-5" stroke="#f15c80" stroke-width="1" d="M 156.44582472000673 30 C 161.44582472000673 30 232.99999999999997 28 232.99999999999997 34 L 232.99999999999997 40"></path><g class="highcharts-label highcharts-data-label highcharts-data-label-color-0 " data-z-index="1" transform="translate(243,0)"><text x="5" data-z-index="1" style="font-size:11px;font-weight:bold;color:#000000;cursor:pointer;fill:#000000;" y="16"><tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round" style="">map</tspan><tspan x="5" y="16">map</tspan></text></g><g class="highcharts-label highcharts-data-label highcharts-data-label-color-1 " data-z-index="1" transform="translate(315,20)"><text x="5" data-z-index="1" style="font-size:11px;font-weight:bold;color:#000000;cursor:pointer;fill:#000000;" y="16"><tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round" style="">network</tspan><tspan x="5" y="16">network</tspan></text></g><g class="highcharts-label highcharts-data-label highcharts-data-label-color-2 " data-z-index="1" transform="translate(340,40)"><text x="5" data-z-index="1" style="font-size:11px;font-weight:bold;color:#000000;cursor:pointer;fill:#000000;" y="16"><tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round" style="">normal</tspan><tspan x="5" y="16">normal</tspan></text></g><g class="highcharts-label highcharts-data-label highcharts-data-label-color-3 " data-z-index="1" transform="translate(243,276)"><text x="5" data-z-index="1" style="font-size:11px;font-weight:bold;color:#000000;cursor:pointer;fill:#000000;" y="16"><tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round" style="">system</tspan><tspan x="5" y="16">system</tspan></text></g><g class="highcharts-label highcharts-data-label highcharts-data-label-color-4 " data-z-index="1" transform="translate(175,0)"><text x="5" data-z-index="1" style="font-size:11px;font-weight:bold;color:#000000;cursor:pointer;fill:#000000;" y="16"><tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round" style="">camera</tspan><tspan x="5" y="16">camera</tspan></text></g><g class="highcharts-label highcharts-data-label highcharts-data-label-color-5 " data-z-index="1" transform="translate(101,20)"><text x="5" data-z-index="1" style="font-size:11px;font-weight:bold;color:#000000;cursor:pointer;fill:#000000;" y="16"><tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round" style="">callsms</tspan><tspan x="5" y="16">callsms</tspan></text></g></g><g class="highcharts-legend" data-z-index="7" transform="translate(28,350)"><rect fill="none" class="highcharts-legend-box" rx="0" ry="0" x="0" y="0" width="431" height="35" visibility="visible"></rect><g data-z-index="1"><g><g class="highcharts-legend-item highcharts-pie-series highcharts-color-0" data-z-index="1" transform="translate(8,3)"><text x="21" style="color:#333333;font-size:12px;font-weight:bold;cursor:pointer;fill:#333333;" text-anchor="start" data-z-index="2" y="15"><tspan>map</tspan></text><rect x="2" y="4" width="12" height="12" fill="#7cb5ec" rx="6" ry="6" class="highcharts-point" data-z-index="3"></rect></g><g class="highcharts-legend-item highcharts-pie-series highcharts-color-1" data-z-index="1" transform="translate(95,3)"><text x="21" y="15" style="color:#333333;font-size:12px;font-weight:bold;cursor:pointer;fill:#333333;" text-anchor="start" data-z-index="2"><tspan>network</tspan></text><rect x="2" y="4" width="12" height="12" fill="#434348" rx="6" ry="6" class="highcharts-point" data-z-index="3"></rect></g><g class="highcharts-legend-item highcharts-pie-series highcharts-color-2" data-z-index="1" transform="translate(182,3)"><text x="21" y="15" style="color:#333333;font-size:12px;font-weight:bold;cursor:pointer;fill:#333333;" text-anchor="start" data-z-index="2"><tspan>normal</tspan></text><rect x="2" y="4" width="12" height="12" fill="#90ed7d" rx="6" ry="6" class="highcharts-point" data-z-index="3"></rect></g><g class="highcharts-legend-item highcharts-pie-series highcharts-color-3" data-z-index="1" transform="translate(269,3)"><text x="21" y="15" style="color:#333333;font-size:12px;font-weight:bold;cursor:pointer;fill:#333333;" text-anchor="start" data-z-index="2"><tspan>system</tspan></text><rect x="2" y="4" width="12" height="12" fill="#f7a35c" rx="6" ry="6" class="highcharts-point" data-z-index="3"></rect></g><g class="highcharts-legend-item highcharts-pie-series highcharts-color-4" data-z-index="1" transform="translate(356,3)"><text x="21" y="15" style="color:#333333;font-size:12px;font-weight:bold;cursor:pointer;fill:#333333;" text-anchor="start" data-z-index="2"><tspan>camera</tspan></text><rect x="2" y="4" width="12" height="12" fill="#8085e9" rx="6" ry="6" class="highcharts-point" data-z-index="3"></rect></g><g class="highcharts-legend-item highcharts-pie-series highcharts-color-5" data-z-index="1" transform="translate(8,15)"><text x="21" y="15" style="color:#333333;font-size:12px;font-weight:bold;cursor:pointer;fill:#333333;" text-anchor="start" data-z-index="2"><tspan>callsms</tspan></text><rect x="2" y="4" width="12" height="12" fill="#f15c80" rx="6" ry="6" class="highcharts-point" data-z-index="3"></rect></g></g></g></g><text x="476" class="highcharts-credits" text-anchor="end" data-z-index="8" style="cursor:pointer;color:#999999;font-size:9px;fill:#999999;" y="395">Highcharts.com</text></svg></div></div>
+</div>
+</div>
+</div>
+<div class="container table-container" id="code-container">
+<legend> Code Features </legend>
+<div class="container loading-img" id="code-loading-img" style="display: none;">
+<img src="5_files/loading.gif">
+</div>
+<div class="container info-container">
+<table class="table table-striped" id="code-table" style="display: table;">
+<thead>
+<tr>
+<th rowspan="1" colspan="1" width="80%"> Code Feature </th>
+<th rowspan="1" colspan="1" width="20%"> Used </th>
+</tr>
+</thead>
+<tbody><tr>
+<td class="table-td-header"> Native Code </td>
+<td class="custom-safe"><i class="fa fa-times-circle"></i></td></tr>
+<tr>
+<td class="table-td-header"> Dynamic Loader </td>
+<td class="custom-danger"><i class="fa fa-check-circle"></i></td></tr>
+<tr>
+<td class="table-td-header"> Java Reflection </td>
+<td class="custom-danger"><i class="fa fa-check-circle"></i></td></tr>
+<tr>
+<td class="table-td-header"> Crypto </td>
+<td class="custom-danger"><i class="fa fa-check-circle"></i></td></tr>
+</tbody><tbody>
+</tbody>
+</table>
+</div>
+</div>
+<div class="container table-container" id="permission-container">
+<legend> Permissions </legend>
+<div class="container loading-img" id="permission-loading-img" style="display: none;">
+<img src="5_files/loading.gif">
+</div>
+<div class="container info-container">
+<table class="table table-striped" id="permission-table" style="display: table;">
+<thead>
+<tr>
+<th rowspan="1" colspan="1" width="20%"> Permission Name </th>
+<th rowspan="1" colspan="1" width="15%"> Protection Level </th>
+<th rowspan="1" colspan="1" width="10%"> Threat Level </th>
+<th rowspan="1" colspan="1" width="10%"> Customized </th>
+<th rowspan="1" colspan="1" width="10%"> Duplicated </th>
+<th rowspan="1" colspan="1" width="10%"> Used </th>
+<th rowspan="1" colspan="1" width="25%"> Description </th>
+</tr>
+</thead>
+<tbody>
+<tr><td>android.permission.ACCESS_NETWORK_STATE</td><td>normal</td><td><img src="5_files/level3.gif"></td><td class="custom-safe"><i class="fa fa-times-circle"></i></td><td class="custom-safe"><i class="fa fa-times-circle"></i></td><td class="custom-safe"><i class="fa fa-check-circle"></i></td><td>Allows applications to access information about networks</td></tr><tr class="danger"><td>android.permission.DISABLE_KEYGUARD</td><td>dangerous</td><td><img src="5_files/level7.gif"></td><td class="custom-safe"><i class="fa fa-times-circle"></i></td><td class="custom-safe"><i class="fa fa-times-circle"></i></td><td class="custom-danger"><i class="fa fa-times-circle"></i></td><td>Group of permissions that are related to the screenlock. Allows applications to disable the keyguard</td></tr><tr class="danger"><td>android.permission.GET_TASKS</td><td>dangerous</td><td><img src="5_files/level7.gif"></td><td class="custom-safe"><i class="fa fa-times-circle"></i></td><td class="custom-safe"><i class="fa fa-times-circle"></i></td><td class="custom-danger"><i class="fa fa-times-circle"></i></td><td>Group
+ of permissions that are related to the other applications running apps,
+ or killing background processes. Allows an application to get 
+information about the currently or recently running tasks.</td></tr><tr class="danger"><td>android.permission.INTERNET</td><td>dangerous</td><td><img src="5_files/level7.gif"></td><td class="custom-safe"><i class="fa fa-times-circle"></i></td><td class="custom-safe"><i class="fa fa-times-circle"></i></td><td class="custom-safe"><i class="fa fa-check-circle"></i></td><td>Used
+ for permissions that provide access to networking services.  The or 
+other related network operations. Allows applications to open network 
+sockets.</td></tr><tr><td>android.permission.KILL_BACKGROUND_PROCESSES</td><td>normal</td><td><img src="5_files/level3.gif"></td><td class="custom-safe"><i class="fa fa-times-circle"></i></td><td class="custom-safe"><i class="fa fa-times-circle"></i></td><td class="custom-danger"><i class="fa fa-times-circle"></i></td><td>Allows an application to call { android.app.ActivityManager#killBackgroundProcesses}.</td></tr><tr class="danger"><td>android.permission.READ_PHONE_STATE</td><td>dangerous</td><td><img src="5_files/level7.gif"></td><td class="custom-safe"><i class="fa fa-times-circle"></i></td><td class="custom-safe"><i class="fa fa-times-circle"></i></td><td class="custom-safe"><i class="fa fa-check-circle"></i></td><td>Allows read only access to phone state. targetSdkVersion is 4 or higher.</td></tr><tr><td>android.permission.RECEIVE_BOOT_COMPLETED</td><td>normal</td><td><img src="5_files/level3.gif"></td><td class="custom-safe"><i class="fa fa-times-circle"></i></td><td class="custom-safe"><i class="fa fa-times-circle"></i></td><td class="custom-safe"><i class="fa fa-check-circle"></i></td><td>Allows an application to receive the to the user.</td></tr><tr class="danger"><td>android.permission.SYSTEM_ALERT_WINDOW</td><td>dangerous</td><td><img src="5_files/level7.gif"></td><td class="custom-safe"><i class="fa fa-times-circle"></i></td><td class="custom-safe"><i class="fa fa-times-circle"></i></td><td class="custom-danger"><i class="fa fa-times-circle"></i></td><td>Group
+ of permissions that allow manipulation of how another application 
+displays UI to the user. Allows an application to open windows using the
+ type system-level interaction with the user.</td></tr><tr><td>android.permission.WAKE_LOCK</td><td>normal</td><td><img src="5_files/level3.gif"></td><td class="custom-safe"><i class="fa fa-times-circle"></i></td><td class="custom-safe"><i class="fa fa-times-circle"></i></td><td class="custom-danger"><i class="fa fa-times-circle"></i></td><td>Allows using PowerManager WakeLocks to keep processor from sleeping or screen from dimming</td></tr></tbody>
+</table>
+</div>
+</div>
+<div class="container table-container" id="activity-container">
+<legend> Activities </legend>
+<div class="container loading-img" id="activity-loading-img" style="display: none;">
+<img src="5_files/loading.gif">
+</div>
+<div class="container info-container">
+<table class="table table-striped" id="activity-table" style="display: table;">
+<thead>
+<tr>
+<th rowspan="1" colspan="1" width="70%"> Name </th>
+<th rowspan="1" colspan="1" width="15%"> Main Activity </th>
+<th rowspan="1" colspan="1" width="15%"> Exposed </th>
+</tr>
+</thead>
+<tbody>
+<tr><td>com.google.common.base.ActionMain$BaseAAInstance<ul></ul></td><td><i class="fa fa-times-circle"></i></td><td class="custom-safe"><i class="fa fa-times-circle"></i></td></tr><tr><td>com.google.common.base.Split<ul><li>android.intent.action.MAIN</li></ul></td><td class="custom-safe"><i class="fa fa-check-circle"></i></td><td class="custom-danger"><i class="fa fa-check-circle"></i></td></tr></tbody>
+</table>
+</div>
+</div>
+<div class="container table-container" id="service-container">
+<legend> Services </legend>
+<div class="container loading-img" id="service-loading-img" style="display: none;">
+<img src="5_files/loading.gif">
+</div>
+<div class="container info-container">
+<table class="table table-striped" id="service-table" style="display: table;">
+<thead>
+<tr>
+<th rowspan="1" colspan="1" width="70%"> Name </th>
+<th rowspan="1" colspan="1" width="30%"> Exposed </th>
+</tr>
+</thead>
+<tbody>
+<tr><td>com.google.common.base.StopView<ul></ul></td><td class="custom-safe"><i class="fa fa-times-circle"></i></td></tr></tbody>
+</table>
+</div>
+</div>
+<div class="container table-container" id="receiver-container">
+<legend> Broadcast Receivers </legend>
+<div class="container loading-img" id="receiver-loading-img" style="display: none;">
+<img src="5_files/loading.gif">
+</div>
+<div class="container info-container">
+<table class="table table-striped" id="receiver-table" style="display: table;">
+<thead>
+<tr>
+<th rowspan="1" colspan="1" width="70%"> Name </th>
+<th rowspan="1" colspan="1" width="20%"> Dynamically Registered </th>
+<th rowspan="1" colspan="1" width="10%"> Exposed </th>
+</tr>
+</thead>
+<tbody>
+<tr><td>com.google.common.base.ActionMain<ul><li>android.app.action.DEVICE_ADMIN_ENABLED</li><li>android.app.action.DEVICE_ADMIN_DISABLED</li></ul></td><td class="custom-safe"><i class="fa fa-times-circle"></i></td><td class="custom-safe"><i class="fa fa-times-circle"></i></td></tr><tr><td>com.google.common.base.Functiones<ul><li>android.intent.action.ACTION_EXTERNAL_APPLICATIONS_AVAILABLE</li></ul></td><td class="custom-safe"><i class="fa fa-times-circle"></i></td><td class="custom-danger"><i class="fa fa-check-circle"></i></td></tr><tr><td>com.google.common.base.internal.DirectReceive<ul><li>android.intent.action.REBOOT</li><li>android.intent.action.QUICKBOOT_POWERON</li><li>android.intent.action.BOOT_COMPLETED</li><li>android.intent.action.SCREEN_ON</li></ul></td><td class="custom-safe"><i class="fa fa-times-circle"></i></td><td class="custom-safe"><i class="fa fa-times-circle"></i></td></tr></tbody>
+</table>
+</div>
+</div>
+<div class="container table-container" id="provider-container">
+<legend> Content Providers </legend>
+<div class="container loading-img" id="provider-loading-img">
+
+<p>N/A</p></div>
+<div class="container info-container">
+<table class="table table-striped" id="provider-table">
+<thead>
+<tr>
+<th rowspan="1" colspan="1" width="30%"> Name </th>
+<th rowspan="1" colspan="1" width="20%"> Authority </th>
+<th rowspan="1" colspan="1" width="20%"> Read Permission </th>
+<th rowspan="1" colspan="1" width="20%"> Write Permission </th>
+<th rowspan="1" colspan="1" width="10%"> Exposed </th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+</div>
+<div class="container table-container" id="feature-container">
+<legend> Features</legend>
+<div class="container loading-img" id="feature-loading-img">
+
+<p>N/A</p></div>
+<div class="container info-container" id="feature-info-container">
+<ul>
+</ul>
+</div>
+</div>
+<div class="container table-container" id="lib-container">
+<legend> Libraries</legend>
+<div class="container loading-img" id="lib-loading-img">
+
+<p>N/A</p></div>
+<div class="container info-container" id="lib-info-container">
+<ul>
+</ul>
+</div>
+</div>
+<div class="container table-container" id="ad-container">
+<legend> Advertisement Modules</legend>
+<div class="container loading-img" id="ad-loading-img">
+
+<p>N/A</p></div>
+<div class="container info-container" id="ad-info-container">
+<ul>
+</ul>
+</div>
+</div>
+
+<div class="container table-container" id="url-container">
+<legend> Urls </legend>
+<div class="container loading-img" id="url-loading-img">
+
+<p>N/A</p></div>
+<div class="container info-container">
+<table class="table table-striped" id="url-table">
+<thead>
+<tr>
+<th rowspan="1" colspan="1" width="20%"> Country </th>
+<th rowspan="1" colspan="1" width="60%"> Url </th>
+<th rowspan="1" colspan="1" width="20%"> IP </th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+</div>
+<div class="container table-container" id="file-container">
+<legend> Sensitive Files </legend>
+<div class="container loading-img" id="file-loading-img">
+
+<p>N/A</p></div>
+<div class="container info-container">
+<table class="table table-striped" id="file-table">
+<thead>
+<tr>
+<th rowspan="1" colspan="1" width="70%"> File Path </th>
+<th rowspan="1" colspan="1" width="20%"> File Type </th>
+<th rowspan="1" colspan="1" width="10%"> APK </th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+</div>
+<div class="container table-container" id="native-container">
+<legend> Native Codes </legend>
+<div class="container loading-img" id="native-loading-img">
+
+<p>N/A</p></div>
+<div class="container info-container">
+<table class="table table-striped" id="native-table">
+<thead>
+<tr>
+<th rowspan="1" colspan="1" width="20%"> Lib Name </th>
+<th rowspan="1" colspan="1" width="70%"> Caller Code </th>
+<th rowspan="1" colspan="1" width="10%"> Path Index </th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+</div>
+<div class="container table-container" id="dynamic-container">
+<legend> Dynamic Loaders </legend>
+<div class="container loading-img" id="dynamic-loading-img" style="display: none;">
+<img src="5_files/loading.gif">
+</div>
+<div class="container info-container">
+<table class="table table-striped" id="dynamic-table" style="display: table;">
+<thead>
+<tr>
+<th rowspan="1" colspan="1" width="35%"> Dex Path </th>
+<th rowspan="1" colspan="1" width="25%"> Lib Path </th>
+<th rowspan="1" colspan="1" width="30%"> Caller Code </th>
+<th rowspan="1" colspan="1" width="10%"> Path Index </th>
+</tr>
+</thead>
+<tbody>
+<tr><td>/data/app/com.google.common.base-1.apk</td><td>N/A</td><td>N/A</td><td>N/A</td></tr></tbody>
+</table>
+</div>
+</div>
+<div class="container table-container" id="crypto-container">
+<legend> Crypto Operation </legend>
+<div class="container loading-img" id="crypto-loading-img" style="display: none;">
+<img src="5_files/loading.gif">
+</div>
+<div class="container info-container">
+<table class="table table-striped" id="crypto-table" style="display: table;">
+<thead>
+<tr>
+<th rowspan="1" colspan="1" width="10%"> Operation </th>
+<th rowspan="1" colspan="1" width="10%"> Algorithm </th>
+<th rowspan="1" colspan="1" width="30%"> Key Encoded </th>
+<th rowspan="1" colspan="1" width="10%"> Key Format </th>
+<th rowspan="1" colspan="1" width="20%"> Plain Text </th>
+<th rowspan="1" colspan="1" width="20%"> Cipher Text </th>
+</tr>
+</thead>
+<tbody>
+<tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>http://aerofigg.org/a.php</td><td>\x0e]\x82\x92y\xe9\xb1\xec\x0c\x05\xb3\x00\x04\x17R\x9fU\x87;\xc4\xeca5\xc3\x8f\x0e\xf4J\x98\xf0E\x88</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>force-locked</td><td>t\xab\x8d\xe8\xa2k\xe7^=a7\x7f\xe1\xdc&lt;Q</td></tr><tr><td>decryption</td><td>AES/CBC/NoPadding</td><td>31313333343536373839616263646566</td><td>RAW</td><td>http://aerofigg.org/a.php</td><td>\x0e]\x82\x92y\xe9\xb1\xec\x0c\x05\xb3\x00\x04\x17R\x9fU\x87;\xc4\xeca5\xc3\x8f\x0e\xf4J\x98\xf0E\x88</td></tr></tbody>
+</table>
+</div>
+</div>
+<div class="container table-container" id="network-container">
+<legend> Network Operations </legend>
+<div class="container loading-img" id="network-loading-img">
+
+<p>N/A</p></div>
+<div class="container info-container">
+<table class="table table-striped" id="network-table">
+<thead>
+<tr>
+<th rowspan="1" colspan="1" width="15%"> Operation </th>
+<th rowspan="1" colspan="1" width="20%"> Host </th>
+<th rowspan="1" colspan="1" width="15%"> Port </th>
+<th rowspan="1" colspan="1" width="50%"> Data </th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+</div>
+<div class="container table-container" id="socket-container">
+<legend> Socket Connections </legend>
+<div class="container loading-img" id="socket-loading-img">
+
+<p>N/A</p></div>
+<div class="container info-container">
+<table class="table table-striped" id="socket-table">
+<thead>
+<tr>
+<th rowspan="1" colspan="1" width="70%"> Remote Address </th>
+<th rowspan="1" colspan="1" width="30%"> Remote Port </th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+</div>
+<div class="container table-container" id="file-operation-container">
+<legend> File Operations </legend>
+<div class="container loading-img" id="file-operation-loading-img" style="display: none;">
+<img src="5_files/loading.gif">
+</div>
+<div class="container info-container">
+<table class="table table-striped" id="file-operation-table" style="display: table;">
+<thead>
+<tr>
+<th rowspan="1" colspan="1" width="10%"> Operation </th>
+<th rowspan="1" colspan="1" width="30%"> File Path </th>
+<th rowspan="1" colspan="1" width="60%"> Data </th>
+</tr>
+</thead>
+<tbody>
+<tr><td>write</td><td>/data/data/com.google.common.base/shared_prefs/php.orgazm.xml</td><td>&lt;?xml
+ version='1.0' encoding='utf-8' standalone='yes' 
+?&gt;\x0a&lt;map&gt;\x0a&lt;string 
+name="ORGAN"&gt;4470013&lt;/string&gt;</td></tr></tbody>
+</table>
+</div>
+</div>
+<div class="container table-container" id="dns-container">
+<legend> DNS Query </legend>
+<div class="container loading-img" id="dns-loading-img">
+
+<p>N/A</p></div>
+<div class="container info-container">
+<table class="table table-striped" id="dns-table">
+<thead>
+<tr>
+<th rowspan="1" colspan="1" width="30%"> QName </th>
+<th rowspan="1" colspan="1" width="10%"> QType </th>
+<th rowspan="1" colspan="1" width="60%"> IPs </th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+</div>
+<div class="container table-container" id="http-container">
+<legend> HTTP Data </legend>
+<div class="container loading-img" id="http-loading-img">
+
+<p>N/A</p></div>
+<div class="container info-container">
+<table class="table table-striped" id="http-table">
+<thead>
+<tr>
+<th rowspan="1" colspan="1" width="10%"> Method </th>
+<th rowspan="1" colspan="1" width="25%"> Host </th>
+<th rowspan="1" colspan="1" width="45%"> Path </th>
+<th rowspan="1" colspan="1" width="20%"> Status Line </th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+</div>
+<div class="container table-container" id="http-recovery-file-container">
+<legend> Files Recovered From Http </legend>
+<div class="container loading-img" id="http-recovery-file-loading-img">
+
+<p>N/A</p></div>
+<div class="container info-container">
+<table class="table table-striped" id="http-recovery-file-table">
+<thead>
+<tr>
+<th rowspan="1" colspan="1" width="20%"> Domain </th>
+<th rowspan="1" colspan="1" width="40%"> File Name </th>
+<th rowspan="1" colspan="1" width="30%"> File Type </th>
+<th rowspan="1" colspan="1" width="10%"> Is APK </th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+</div>
+<div class="container table-container" id="shell-container">
+<legend> Execute Shells </legend>
+<div class="container loading-img" id="shell-loading-img">
+
+<p>N/A</p></div>
+<div class="container info-container" id="shell-info-container">
+<ul>
+</ul>
+</div>
+</div>
+<div class="container table-container" id="started-service-container">
+<legend> Started Services </legend>
+<div class="container loading-img" id="started-service-loading-img" style="display: none;">
+<img src="5_files/loading.gif">
+</div>
+<div class="container info-container" id="started-service-info-container">
+<ul>
+<li>Intent { cmp=com.google.common.base/.StopView }</li><li>Intent { cmp=com.google.common.base/.StopView }</li><li>Intent { cmp=com.google.common.base/.StopView }</li><li>Intent { cmp=com.google.common.base/.StopView }</li><li>Intent { cmp=com.google.common.base/.StopView }</li><li>Intent { cmp=com.google.common.base/.StopView }</li></ul>
+</div>
+</div>
+<div class="container table-container" id="may-sms-container">
+<legend> May Send SMS </legend>
+<div class="container loading-img" id="may-sms-loading-img">
+
+<p>N/A</p></div>
+<div class="container info-container">
+<table class="table table-striped" id="may-sms-table">
+<thead>
+<tr>
+<th rowspan="1" colspan="1" width="20%"> Destination Number </th>
+<th rowspan="1" colspan="1" width="30%"> Message Body </th>
+<th rowspan="1" colspan="1" width="40%"> Caller Code </th>
+<th rowspan="1" colspan="1" width="10%"> Path Index </th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+</div>
+<div class="container table-container" id="sms-container">
+<legend> Send SMS </legend>
+<div class="container loading-img" id="sms-loading-img">
+
+<p>N/A</p></div>
+<div class="container info-container">
+<table class="table table-striped" id="sms-table">
+<thead>
+<tr>
+<th rowspan="1" colspan="1" width="30%"> Destination Number </th>
+<th rowspan="1" colspan="1" width="70%"> Message Body </th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+</div>
+<div class="container table-container" id="sms-block-container">
+<legend> Block SMS </legend>
+<div class="container loading-img" id="sms-block-loading-img">
+
+<p>N/A</p></div>
+<div class="container info-container">
+<table class="table table-striped" id="sms-block-table">
+<thead>
+<tr>
+<th rowspan="1" colspan="1" width="30%"> Source Number </th>
+<th rowspan="1" colspan="1" width="70%"> Message Body </th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+</div>
+<div class="container table-container" id="call-container">
+<legend> Phone Call </legend>
+<div class="container loading-img" id="call-loading-img">
+
+<p>N/A</p></div>
+<div class="container info-container" id="call-info-container">
+<ul>
+</ul>
+</div>
+</div>
+<div class="container table-container" id="dataleak-container">
+<legend> Data Leakage </legend>
+<div class="container loading-img" id="dataleak-loading-img">
+
+<p>N/A</p></div>
+<div class="container info-container">
+<table class="table table-striped" id="dataleak-table">
+<thead>
+<tr>
+<th rowspan="1" colspan="1" width="10%"> Leak Type </th>
+<th rowspan="1" colspan="1" width="20%"> Tag </th>
+<th rowspan="1" colspan="1" width="45%"> Leak Data </th>
+<th rowspan="1" colspan="1" width="25%"> Destination </th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+</div>
+<div class="container table-container" id="api-container">
+<legend> Sensitive APIs </legend>
+<div class="container loading-img" id="api-loading-img" style="display: none;">
+<img src="5_files/loading.gif">
+</div>
+<div class="container info-container" id="api-info-container">
+<ul><li class="api-name">API: Landroid/telephony/TelephonyManager;-&gt;getDeviceId</li><li>Description: Gets the unique device ID, IMEI for GSM and MEID for ESN or ESN for CDMA phones</li><li>Caller Code: Lcom/google/common/base/StopView$MyAsyncTask;-&gt;getIMEI()Ljava/lang/String;</li><li>Threat Level: <img src="5_files/level7.gif"></li><li>Path Index: 20</li></ul><ul><li class="api-name">API: Ljava/lang/reflect/Method;-&gt;invoke</li><li>Description: Utilizes Java reflection</li><li>Caller Code: Lcom/google/common/base/FinalizableReferenceQueue;-&gt;<init>()V</init></li><li>Threat Level: <img src="5_files/level5.gif"></li><li>Path Index: 82</li></ul><ul><li class="api-name">API: Ljava/lang/reflect/Method;-&gt;invoke</li><li>Description: Utilizes Java reflection</li><li>Caller Code: Lcom/google/common/base/internal/Finalizer;-&gt;cleanUp(Ljava/lang/ref/Reference;)Z</li><li>Threat Level: <img src="5_files/level5.gif"></li><li>Path Index: 36</li></ul><ul><li class="api-name">API: Ljava/lang/reflect/Method;-&gt;invoke</li><li>Description: Utilizes Java reflection</li><li>Caller Code: Lcom/google/common/eventbus/EventSubscriber;-&gt;handleEvent(Ljava/lang/Object;)V</li><li>Threat Level: <img src="5_files/level5.gif"></li><li>Path Index: 26</li></ul><ul><li class="api-name">API: Ljava/lang/reflect/Method;-&gt;invoke</li><li>Description: Utilizes Java reflection</li><li>Caller Code: Lcom/google/common/util/concurrent/MoreExecutors;-&gt;isAppEngine()Z</li><li>Threat Level: <img src="5_files/level5.gif"></li><li>Path Index: 58</li></ul><ul><li class="api-name">API: Ljava/lang/reflect/Method;-&gt;invoke</li><li>Description: Utilizes Java reflection</li><li>Caller Code: Lcom/google/common/util/concurrent/MoreExecutors;-&gt;platformThreadFactory()Ljava/util/concurrent/ThreadFactory;</li><li>Threat Level: <img src="5_files/level5.gif"></li><li>Path Index: 60</li></ul><ul><li class="api-name">API: Ljava/lang/reflect/Method;-&gt;invoke</li><li>Description: Utilizes Java reflection</li><li>Caller Code: Lcom/google/common/util/concurrent/SimpleTimeLimiter$1$1;-&gt;call()Ljava/lang/Object;</li><li>Threat Level: <img src="5_files/level5.gif"></li><li>Path Index: 16</li></ul><ul><li class="api-name">API: Ljava/lang/reflect/Method;-&gt;invoke</li><li>Description: Utilizes Java reflection</li><li>Caller
+ Code: 
+Lcom/google/common/io/Closer$SuppressingSuppressor;-&gt;suppress(Ljava/io/Closeable;
+ Ljava/lang/Throwable; Ljava/lang/Throwable;)V</li><li>Threat Level: <img src="5_files/level5.gif"></li><li>Path Index: 22</li></ul><ul><li class="api-name">API: Ljava/lang/reflect/Method;-&gt;invoke</li><li>Description: Utilizes Java reflection</li><li>Caller
+ Code: 
+Lcom/google/common/reflect/Invokable$MethodInvokable;-&gt;invokeInternal(Ljava/lang/Object;
+ [Ljava/lang/Object;)Ljava/lang/Object;</li><li>Threat Level: <img src="5_files/level5.gif"></li><li>Path Index: 4</li></ul><ul><li class="api-name">API: Ljavax/crypto/Cipher;-&gt;doFinal</li><li>Description: Encrypt or Decrypt data</li><li>Caller Code: Lcom/google/common/base/internal/InternalEvent;-&gt;ultraBeton(Ljava/lang/String;)[B</li><li>Threat Level: <img src="5_files/level5.gif"></li><li>Path Index: 34</li></ul></div>
+</div>
+<div class="container table-container" id="used-permissions-container">
+<legend> Permission Usage </legend>
+<div class="container loading-img" id="used-permissions-loading-img" style="display: none;">
+<img src="5_files/loading.gif">
+</div>
+<div class="container info-container" id="used-permissions-content-container">
+<ul><li class="used-permissions-name">Permission Name: android.permission.ACCESS_NETWORK_STATE</li><li>Used Type: Api</li><li>Caller Code: Lcom/google/common/base/FinalizeContainer;-&gt;isNetworkAvailable(Landroid/content/Context;)Z</li><li>Callee Code: Landroid/net/ConnectivityManager;-&gt;getActiveNetworkInfo()Landroid/net/NetworkInfo;</li><li>Path Index: 16</li></ul><ul><li class="used-permissions-name">Permission Name: android.permission.INTERNET</li><li>Used Type: Api</li><li>Caller
+ Code: 
+Lcom/google/common/io/ByteStreams;-&gt;readBytes(Lcom/google/common/io/InputSupplier;
+ Lcom/google/common/io/ByteProcessor;)Ljava/lang/Object;</li><li>Callee Code: Lcom/google/common/io/InputSupplier;-&gt;getInput()Ljava/lang/Object;</li><li>Path Index: 20</li></ul><ul><li class="used-permissions-name">Permission Name: android.permission.INTERNET</li><li>Used Type: Api</li><li>Caller
+ Code: 
+Lcom/google/common/io/CharStreams;-&gt;readLines(Lcom/google/common/io/InputSupplier;
+ Lcom/google/common/io/LineProcessor;)Ljava/lang/Object;</li><li>Callee Code: Lcom/google/common/io/InputSupplier;-&gt;getInput()Ljava/lang/Object;</li><li>Path Index: 20</li></ul><ul><li class="used-permissions-name">Permission Name: android.permission.INTERNET</li><li>Used Type: Api</li><li>Caller Code: Lcom/google/common/io/CharStreams;-&gt;readLines(Lcom/google/common/io/InputSupplier;)Ljava/util/List;</li><li>Callee Code: Lcom/google/common/io/InputSupplier;-&gt;getInput()Ljava/lang/Object;</li><li>Path Index: 8</li></ul><ul><li class="used-permissions-name">Permission Name: android.permission.INTERNET</li><li>Used Type: Api</li><li>Caller Code: Lcom/google/common/io/ByteStreams$3;-&gt;openStream()Ljava/io/InputStream;</li><li>Callee Code: Lcom/google/common/io/InputSupplier;-&gt;getInput()Ljava/lang/Object;</li><li>Path Index: 4</li></ul><ul><li class="used-permissions-name">Permission Name: android.permission.INTERNET</li><li>Used Type: Api</li><li>Caller Code: Lcom/google/common/io/CharStreams$3;-&gt;openStream()Ljava/io/Reader;</li><li>Callee Code: Lcom/google/common/io/InputSupplier;-&gt;getInput()Ljava/lang/Object;</li><li>Path Index: 4</li></ul><ul><li class="used-permissions-name">Permission Name: android.permission.INTERNET</li><li>Used Type: Api</li><li>Caller
+ Code: 
+Lcom/google/common/io/CharStreams;-&gt;readLines(Lcom/google/common/io/InputSupplier;
+ Lcom/google/common/io/LineProcessor;)Ljava/lang/Object;</li><li>Callee 
+Code: 
+Lcom/google/common/io/CharStreams;-&gt;readLines(Ljava/lang/Readable; 
+Lcom/google/common/io/LineProcessor;)Ljava/lang/Object;</li><li>Path Index: 44</li></ul><ul><li class="used-permissions-name">Permission Name: android.permission.INTERNET</li><li>Used Type: Api</li><li>Caller Code: Lcom/google/common/io/CharStreams;-&gt;readLines(Lcom/google/common/io/InputSupplier;)Ljava/util/List;</li><li>Callee Code: Lcom/google/common/io/CharStreams;-&gt;readLines(Ljava/lang/Readable;)Ljava/util/List;</li><li>Path Index: 32</li></ul><ul><li class="used-permissions-name">Permission Name: android.permission.INTERNET</li><li>Used Type: Api</li><li>Caller Code: Lcom/google/common/io/CharStreams;-&gt;toString(Ljava/lang/Readable;)Ljava/lang/String;</li><li>Callee Code: Lcom/google/common/io/CharStreams;-&gt;toStringBuilder(Ljava/lang/Readable;)Ljava/lang/StringBuilder;</li><li>Path Index: 0</li></ul><ul><li class="used-permissions-name">Permission Name: android.permission.INTERNET</li><li>Used Type: Api</li><li>Caller Code: Lcom/google/common/io/CharStreams;-&gt;toStringBuilder(Ljava/lang/Readable;)Ljava/lang/StringBuilder;</li><li>Callee Code: Lcom/google/common/io/CharStreams;-&gt;copy(Ljava/lang/Readable; Ljava/lang/Appendable;)J</li><li>Path Index: 10</li></ul><ul><li class="used-permissions-name">Permission Name: android.permission.INTERNET</li><li>Used Type: Api</li><li>Caller
+ Code: Lcom/google/common/io/Files;-&gt;readLines(Ljava/io/File; 
+Ljava/nio/charset/Charset; 
+Lcom/google/common/io/LineProcessor;)Ljava/lang/Object;</li><li>Callee 
+Code: 
+Lcom/google/common/io/CharStreams;-&gt;readLines(Lcom/google/common/io/InputSupplier;
+ Lcom/google/common/io/LineProcessor;)Ljava/lang/Object;</li><li>Path Index: 8</li></ul><ul><li class="used-permissions-name">Permission Name: android.permission.INTERNET</li><li>Used Type: Api</li><li>Caller
+ Code: Lcom/google/common/io/Resources;-&gt;readLines(Ljava/net/URL; 
+Ljava/nio/charset/Charset; 
+Lcom/google/common/io/LineProcessor;)Ljava/lang/Object;</li><li>Callee 
+Code: 
+Lcom/google/common/io/CharStreams;-&gt;readLines(Lcom/google/common/io/InputSupplier;
+ Lcom/google/common/io/LineProcessor;)Ljava/lang/Object;</li><li>Path Index: 8</li></ul><ul><li class="used-permissions-name">Permission Name: android.permission.INTERNET</li><li>Used Type: Api</li><li>Caller Code: Lcom/google/common/io/CharSink;-&gt;writeFrom(Ljava/lang/Readable;)J</li><li>Callee Code: Lcom/google/common/io/CharStreams;-&gt;copy(Ljava/lang/Readable; Ljava/lang/Appendable;)J</li><li>Path Index: 34</li></ul><ul><li class="used-permissions-name">Permission Name: android.permission.INTERNET</li><li>Used Type: Api</li><li>Caller Code: Lcom/google/common/io/CharSource;-&gt;copyTo(Lcom/google/common/io/CharSink;)J</li><li>Callee Code: Lcom/google/common/io/CharStreams;-&gt;copy(Ljava/lang/Readable; Ljava/lang/Appendable;)J</li><li>Path Index: 54</li></ul><ul><li class="used-permissions-name">Permission Name: android.permission.INTERNET</li><li>Used Type: Api</li><li>Caller Code: Lcom/google/common/io/CharSource;-&gt;copyTo(Ljava/lang/Appendable;)J</li><li>Callee Code: Lcom/google/common/io/CharStreams;-&gt;copy(Ljava/lang/Readable; Ljava/lang/Appendable;)J</li><li>Path Index: 34</li></ul><ul><li class="used-permissions-name">Permission Name: android.permission.INTERNET</li><li>Used Type: Api</li><li>Caller Code: Lcom/google/common/io/CharSource;-&gt;read()Ljava/lang/String;</li><li>Callee Code: Lcom/google/common/io/CharStreams;-&gt;toString(Ljava/lang/Readable;)Ljava/lang/String;</li><li>Path Index: 28</li></ul><ul><li class="used-permissions-name">Permission Name: android.permission.INTERNET</li><li>Used Type: Api</li><li>Caller Code: Lcom/google/common/io/CharSource;-&gt;readLines(Lcom/google/common/io/LineProcessor;)Ljava/lang/Object;</li><li>Callee
+ Code: 
+Lcom/google/common/io/CharStreams;-&gt;readLines(Ljava/lang/Readable; 
+Lcom/google/common/io/LineProcessor;)Ljava/lang/Object;</li><li>Path Index: 34</li></ul><ul><li class="used-permissions-name">Permission Name: android.permission.INTERNET</li><li>Used Type: Api</li><li>Caller Code: Lcom/google/common/io/Resources;-&gt;readLines(Ljava/net/URL; Ljava/nio/charset/Charset;)Ljava/util/List;</li><li>Callee
+ Code: Lcom/google/common/io/Resources;-&gt;readLines(Ljava/net/URL; 
+Ljava/nio/charset/Charset; 
+Lcom/google/common/io/LineProcessor;)Ljava/lang/Object;</li><li>Path Index: 10</li></ul><ul><li class="used-permissions-name">Permission Name: android.permission.INTERNET</li><li>Used Type: Api</li><li>Caller
+ Code: 
+Lcom/google/common/io/ByteStreams;-&gt;readBytes(Lcom/google/common/io/InputSupplier;
+ Lcom/google/common/io/ByteProcessor;)Ljava/lang/Object;</li><li>Callee 
+Code: 
+Lcom/google/common/io/ByteStreams;-&gt;readBytes(Ljava/io/InputStream; 
+Lcom/google/common/io/ByteProcessor;)Ljava/lang/Object;</li><li>Path Index: 44</li></ul><ul><li class="used-permissions-name">Permission Name: android.permission.INTERNET</li><li>Used Type: Api</li><li>Caller Code: Lcom/google/common/io/ByteStreams;-&gt;toByteArray(Ljava/io/InputStream;)[B</li><li>Callee Code: Lcom/google/common/io/ByteStreams;-&gt;copy(Ljava/io/InputStream; Ljava/io/OutputStream;)J</li><li>Path Index: 10</li></ul><ul><li class="used-permissions-name">Permission Name: android.permission.INTERNET</li><li>Used Type: Api</li><li>Caller Code: Lcom/google/common/io/ByteStreams;-&gt;toByteArray(Ljava/io/InputStream; I)[B</li><li>Callee Code: Lcom/google/common/io/ByteStreams;-&gt;copy(Ljava/io/InputStream; Ljava/io/OutputStream;)J</li><li>Path Index: 74</li></ul><ul><li class="used-permissions-name">Permission Name: android.permission.INTERNET</li><li>Used Type: Api</li><li>Caller Code: Lcom/google/common/io/Files;-&gt;readBytes(Ljava/io/File; Lcom/google/common/io/ByteProcessor;)Ljava/lang/Object;</li><li>Callee
+ Code: 
+Lcom/google/common/io/ByteStreams;-&gt;readBytes(Lcom/google/common/io/InputSupplier;
+ Lcom/google/common/io/ByteProcessor;)Ljava/lang/Object;</li><li>Path Index: 8</li></ul><ul><li class="used-permissions-name">Permission Name: android.permission.INTERNET</li><li>Used Type: Api</li><li>Caller Code: Lcom/google/common/io/Files;-&gt;readFile(Ljava/io/InputStream; J)[B</li><li>Callee Code: Lcom/google/common/io/ByteStreams;-&gt;toByteArray(Ljava/io/InputStream;)[B</li><li>Path Index: 88</li></ul><ul><li class="used-permissions-name">Permission Name: android.permission.INTERNET</li><li>Used Type: Api</li><li>Caller Code: Lcom/google/common/io/Files;-&gt;readFile(Ljava/io/InputStream; J)[B</li><li>Callee Code: Lcom/google/common/io/ByteStreams;-&gt;toByteArray(Ljava/io/InputStream; I)[B</li><li>Path Index: 100</li></ul><ul><li class="used-permissions-name">Permission Name: android.permission.INTERNET</li><li>Used Type: Api</li><li>Caller Code: Lcom/google/common/io/ByteSink;-&gt;writeFrom(Ljava/io/InputStream;)J</li><li>Callee Code: Lcom/google/common/io/ByteStreams;-&gt;copy(Ljava/io/InputStream; Ljava/io/OutputStream;)J</li><li>Path Index: 34</li></ul><ul><li class="used-permissions-name">Permission Name: android.permission.INTERNET</li><li>Used Type: Api</li><li>Caller Code: Lcom/google/common/io/ByteSource;-&gt;copyTo(Lcom/google/common/io/ByteSink;)J</li><li>Callee Code: Lcom/google/common/io/ByteStreams;-&gt;copy(Ljava/io/InputStream; Ljava/io/OutputStream;)J</li><li>Path Index: 54</li></ul><ul><li class="used-permissions-name">Permission Name: android.permission.INTERNET</li><li>Used Type: Api</li><li>Caller Code: Lcom/google/common/io/ByteSource;-&gt;copyTo(Ljava/io/OutputStream;)J</li><li>Callee Code: Lcom/google/common/io/ByteStreams;-&gt;copy(Ljava/io/InputStream; Ljava/io/OutputStream;)J</li><li>Path Index: 34</li></ul><ul><li class="used-permissions-name">Permission Name: android.permission.INTERNET</li><li>Used Type: Api</li><li>Caller Code: Lcom/google/common/io/ByteSource;-&gt;read(Lcom/google/common/io/ByteProcessor;)Ljava/lang/Object;</li><li>Callee
+ Code: 
+Lcom/google/common/io/ByteStreams;-&gt;readBytes(Ljava/io/InputStream; 
+Lcom/google/common/io/ByteProcessor;)Ljava/lang/Object;</li><li>Path Index: 34</li></ul><ul><li class="used-permissions-name">Permission Name: android.permission.INTERNET</li><li>Used Type: Api</li><li>Caller Code: Lcom/google/common/io/ByteSource;-&gt;read()[B</li><li>Callee Code: Lcom/google/common/io/ByteStreams;-&gt;toByteArray(Ljava/io/InputStream;)[B</li><li>Path Index: 28</li></ul><ul><li class="used-permissions-name">Permission Name: android.permission.INTERNET</li><li>Used Type: Api</li><li>Caller Code: Lcom/google/common/io/Files;-&gt;move(Ljava/io/File; Ljava/io/File;)V</li><li>Callee Code: Lcom/google/common/io/Files;-&gt;copy(Ljava/io/File; Ljava/io/File;)V</li><li>Path Index: 66</li></ul><ul><li class="used-permissions-name">Permission Name: android.permission.INTERNET</li><li>Used Type: Api</li><li>Caller Code: Lcom/google/common/io/Files;-&gt;readLines(Ljava/io/File; Ljava/nio/charset/Charset;)Ljava/util/List;</li><li>Callee
+ Code: Lcom/google/common/io/Files;-&gt;readLines(Ljava/io/File; 
+Ljava/nio/charset/Charset; 
+Lcom/google/common/io/LineProcessor;)Ljava/lang/Object;</li><li>Path Index: 10</li></ul><ul><li class="used-permissions-name">Permission Name: android.permission.INTERNET</li><li>Used Type: Api</li><li>Caller Code: Lcom/google/common/io/MultiInputStream;-&gt;<init>(Ljava/util/Iterator;)V</init></li><li>Callee Code: Lcom/google/common/io/MultiInputStream;-&gt;advance()V</li><li>Path Index: 22</li></ul><ul><li class="used-permissions-name">Permission Name: android.permission.INTERNET</li><li>Used Type: Api</li><li>Caller Code: Lcom/google/common/io/MultiInputStream;-&gt;read()I</li><li>Callee Code: Lcom/google/common/io/MultiInputStream;-&gt;advance()V</li><li>Path Index: 30</li></ul><ul><li class="used-permissions-name">Permission Name: android.permission.INTERNET</li><li>Used Type: Api</li><li>Caller Code: Lcom/google/common/io/MultiInputStream;-&gt;read()I</li><li>Callee Code: Lcom/google/common/io/MultiInputStream;-&gt;read()I</li><li>Path Index: 36</li></ul><ul><li class="used-permissions-name">Permission Name: android.permission.INTERNET</li><li>Used Type: Api</li><li>Caller Code: Lcom/google/common/io/MultiInputStream;-&gt;read([B I I)I</li><li>Callee Code: Lcom/google/common/io/MultiInputStream;-&gt;advance()V</li><li>Path Index: 30</li></ul><ul><li class="used-permissions-name">Permission Name: android.permission.INTERNET</li><li>Used Type: Api</li><li>Caller Code: Lcom/google/common/io/MultiInputStream;-&gt;read([B I I)I</li><li>Callee Code: Lcom/google/common/io/MultiInputStream;-&gt;read([B I I)I</li><li>Path Index: 36</li></ul><ul><li class="used-permissions-name">Permission Name: android.permission.INTERNET</li><li>Used Type: Api</li><li>Caller Code: Lcom/google/common/io/MultiInputStream;-&gt;skip(J)J</li><li>Callee Code: Lcom/google/common/io/MultiInputStream;-&gt;read()I</li><li>Path Index: 48</li></ul><ul><li class="used-permissions-name">Permission Name: android.permission.INTERNET</li><li>Used Type: Api</li><li>Caller Code: Lcom/google/common/io/Resources$UrlByteSource;-&gt;openStream()Ljava/io/InputStream;</li><li>Callee Code: Ljava/net/URL;-&gt;openStream()Ljava/io/InputStream;</li><li>Path Index: 4</li></ul><ul><li class="used-permissions-name">Permission Name: android.permission.INTERNET</li><li>Used Type: Api</li><li>Caller Code: Lcom/google/common/io/MultiReader;-&gt;<init>(Ljava/util/Iterator;)V</init></li><li>Callee Code: Lcom/google/common/io/MultiReader;-&gt;advance()V</li><li>Path Index: 10</li></ul><ul><li class="used-permissions-name">Permission Name: android.permission.INTERNET</li><li>Used Type: Api</li><li>Caller Code: Lcom/google/common/io/MultiReader;-&gt;read([C I I)I</li><li>Callee Code: Lcom/google/common/io/MultiReader;-&gt;advance()V</li><li>Path Index: 30</li></ul><ul><li class="used-permissions-name">Permission Name: android.permission.INTERNET</li><li>Used Type: Api</li><li>Caller Code: Lcom/google/common/io/MultiReader;-&gt;read([C I I)I</li><li>Callee Code: Lcom/google/common/io/MultiReader;-&gt;read([C I I)I</li><li>Path Index: 36</li></ul><ul><li class="used-permissions-name">Permission Name: android.permission.INTERNET</li><li>Used Type: Api</li><li>Caller Code: Lcom/google/common/io/MultiReader;-&gt;skip(J)J</li><li>Callee Code: Lcom/google/common/io/MultiReader;-&gt;advance()V</li><li>Path Index: 66</li></ul><ul><li class="used-permissions-name">Permission Name: android.permission.READ_PHONE_STATE</li><li>Used Type: Api</li><li>Caller Code: Lcom/google/common/base/StopView$MyAsyncTask;-&gt;getIMEI()Ljava/lang/String;</li><li>Callee Code: Landroid/telephony/TelephonyManager;-&gt;getDeviceId()Ljava/lang/String;</li><li>Path Index: 20</li></ul><ul><li class="used-permissions-name">Permission Name: android.permission.RECEIVE_BOOT_COMPLETED</li><li>Used Type: Intent Action</li><li>Callee Code: android.intent.action.BOOT_COMPLETED</li></ul><ul><li class="used-permissions-name">Permission Name: android.permission.RECEIVE_BOOT_COMPLETED</li><li>Used Type: Intent Action</li><li>Callee Code: android.intent.action.BOOT_COMPLETED</li></ul></div>
+</div>
+<div class="container table-container" id="log-container">
+<legend> Log Message </legend>
+<div class="container loading-img" id="log-loading-img" style="display: none;">
+<img src="5_files/loading.gif">
+</div>
+<div class="container info-container">
+<table class="table table-striped" id="log-table" style="display: table;">
+<thead>
+<tr>
+<th rowspan="1" colspan="1" width="30%"> Tag </th>
+<th rowspan="1" colspan="1" width="70%"> Message </th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Choreographer</td><td>Skipped 60 frames!  The application may be doing too much work on its main thread.</td></tr><tr><td>Choreographer</td><td>Skipped 104 frames!  The application may be doing too much work on its main thread.</td></tr><tr><td>InputEventConsistencyVerifier</td><td>TrackballEvent:
+ Trackball is down but pressure is not greater than 0.
+  in android.view.ViewRootImpl@410d2fc0
+  0: sent at 88982000000, MotionEvent { action=ACTION_DOWN, id[0]=0, 
+x[0]=0.0, y[0]=0.0, toolType[0]=TOOL_TYPE_UNKNOWN, buttonState=0, 
+metaState=0, flags=0x0, edgeFlags=0x0, pointerCount=1, historySize=0, 
+eventTime=88982, downTime=88960, deviceId=0, source=0x10004 }
+  -- recent events --
+  1: sent at 88980000000, MotionEvent { action=ACTION_MOVE, 
+id[0]=4[0]=0, x[0]=4.0, y[0]=1.0, toolType[0]=TOOL_TYPE_UNKNOWN, 
+buttonState=0, metaState=0, flags=0x0, edgeFlags=0x0, pointerCount=1, 
+historySize=9, eventTime=88980, downTime=-1, deviceId=0, source=0x10004 }
+  2: sent at 88910000000, KeyEvent { action=ACTION_UP, 
+keyCode=KEYCODE_DPAD_CENTER, scanCode=0, metaState=0, flags=0x8, 
+repeatCount=0, eventTime=88910, downTime=88910, deviceId=-1, 
+source=0x101 }
+  3: sent at 88861000000, KeyEvent { action=ACTION_DOWN, 
+keyCode=KEYCODE_DPAD_CENTER, scanCode=0, metaState=0, fl0, flags=0x8, 
+repeatCount=0, eventTime=88861, downTime=88861, deviceId=-1, 
+source=0x101 }
+  4: sent at 88855000000, MotionEvent { action=ACTION_UP, id[0]=0, 
+x[0]=90.0, y[0]=36.0, toolType[0]=TOOL_TYPE_UNKNOWN, buttonState=0, 
+metaState=0, flags=0x0, edgeFlags=0x0, pointerCount=1, historySize=0, 
+eventTime=88855, downTime=88848, deviceId=0, source=0x1002 }
+  5: sent at 88848000000, MotionEvent { action=ACTION_DOWN, id[0]=0, 
+x[0]=95.0, y[0]=40.0, toolType[0]=TOOL_TYPE_UNKNOWN, buttonState=0, 
+metaState=0, flags6lags=0x0, edgeFlags=0x0, pointerCount=1, 
+historySize=0, eventTime=88848, downTime=88848, deviceId=0, 
+source=0x1002 }</td></tr><tr><td>InputEventConsistencyVerifier</td><td>TrackballEvent:
+ Trackball is down but pressure is not greater than 0.
+  in android.view.ViewRootImpl@410d2fc0
+  0: sent at 91381000000, MotionEvent { action=ACTION_DOWN, id[0]=0, 
+x[0]=0.0, y[0]=0.0, toolType[0]=TOOL_TYPE_UNKNOWN, buttonState=0, 
+metaState=0, flags=0x0, edgeFlags=0x0, pointerCount=1, historySize=0, 
+eventTime=91381, downTime=91344, deviceId=0, source=0x10004 }
+  -- recent events --
+  1: sent at 91408000000, KeyEvent { action=ACTION_UP, 
+keyCode=KEYE=KEYCODE_DPAD_DOWN, scanCode=0, metaState=0, flags=0x400, 
+repeatCount=0, eventTime=91408, downTime=91408, deviceId=-1, 
+source=0x101 }
+  2: sent at 91408000000, KeyEvent { action=ACTION_DOWN, 
+keyCode=KEYCODE_DPAD_DOWN, scanCode=0, metaState=0, flags=0x400, 
+repeatCount=0, eventTime=91408, downTime=91408, deviceId=-1, 
+source=0x101 }
+  3: sent at 91408000000, KeyEvent { action=ACTION_UP, 
+keyCode=KEYCODE_DPAD_DOWN, scanCode=0, metaState=0, flags=0x400, 
+repeatCount=0, eventTime=91408, downTime=91408, deviceId=-1Id=-1, 
+source=0x101 }
+  4: sent at 91408000000, KeyEvent { action=ACTION_DOWN, 
+keyCode=KEYCODE_DPAD_DOWN, scanCode=0, metaState=0, flags=0x400, 
+repeatCount=0, eventTime=91408, downTime=91408, deviceId=-1, 
+source=0x101 }
+  5: sent at 91408000000, KeyEvent { action=ACTION_UP, 
+keyCode=KEYCODE_DPAD_DOWN, scanCode=0, metaState=0, flags=0x400, 
+repeatCount=0, eventTime=91408, downTime=91408, deviceId=-1, 
+source=0x101 }</td></tr></tbody>
+</table>
+</div>
+</div>
+<div class="container table-container" id="may-log-container">
+<legend> May Log Message </legend>
+<div class="container loading-img" id="may-log-loading-img" style="display: none;">
+<img src="5_files/loading.gif">
+</div>
+<div class="container info-container">
+<table class="table table-striped" id="may-log-table" style="display: table;">
+<thead>
+<tr>
+<th rowspan="1" colspan="1" width="15%"> Tag </th>
+<th rowspan="1" colspan="1" width="30%"> Message </th>
+<th rowspan="1" colspan="1" width="45%"> Caller Code </th>
+<th rowspan="1" colspan="1" width="10%"> Path Index </th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="container" id="screenshot-container">
+<legend> ScreenShots </legend>
+<img src="5_files/2AD9B04688BB46CF002F0439C80A36AA.gif">
+</div>
+
+<div id="to-top">^ Back to Top</div>
+
+
+<div class="navbar">
+<hr>
+<div class="container">
+<p class="info">Developed by
+<a href="http://botnet.xjtu.edu.cn/" target="blank"> Botnet Research Team <i class="icon-external-link"></i></a>,
+<a href="http://www.xjtu.edu.cn/" target="blank"> Xi'an Jiaotong University <i class="icon-external-link"></i></a>
+</p>
+<p class="info">Contact me:
+<i class="fa fa-envelope"></i>
+<a href="mailto:wang02zheng@gmail.com"> wang02zheng#gmail.com </a>
+</p>
+<p class="info"> Partners:
+<a href="https://www.visualthreat.com/" target="blank"> VisualThreat <i class="icon-external-link"></i>
+</a>,
+<a href="http://www.mobiseclab.org/" target="blank"> MobiSecLab <i class="icon-external-link"></i>
+</a>
+</p>
+</div><!--/.container -->
+</div><!--/.nav-bar-fixed-bottome -->
+
+</div>
+<!-- jQuery -->
+<script src="5_files/jquery.js"></script>
+<script src="5_files/jquery-ui.js"></script>
+<!-- Bootstrap core Javascript -->
+<script src="5_files/bootstrap.js"></script>
+<!-- Highcharts -->
+<script src="5_files/highcharts.js"></script>
+<script src="5_files/exporting.js"></script>
+<!-- jVectorMap -->
+<script src="5_files/jquery-jvectormap-1.js"></script>
+<script src="5_files/jquery-jvectormap-world-mill-en.js"></script>
+<!-- Custom -->
+<script src="5_files/utils.js"></script>
+<script src="5_files/animation.js"></script>
+<script src="5_files/report.js"></script>
+
+</body></html>
